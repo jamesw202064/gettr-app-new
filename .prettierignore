@@ -1,0 +1,11 @@
+node_modules
+.prettierignore
+.next
+.tina/__generated__
+styles.css
+.prettierrc
+*.md
+*.svg
+*.json
+public
+yarn.lock
