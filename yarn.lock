@@ -12291,10 +12291,10 @@ tinacms@1.4.3:
     yup "^0.32.0"
     zod "^3.14.3"
 
-tinacms@^1.5.3:
-  version "1.5.3"
-  resolved "https://registry.yarnpkg.com/tinacms/-/tinacms-1.5.3.tgz#22393a97d34c5c7171385fd19ca9a96df47c7d57"
-  integrity sha512-rasP6gmE8oPGIw8kutmOiKM0jtW98WnQyxBfC4mkqz38+WCpxLOz9XIWkmDvLE3mNXJIwe9vLSeRM8a6yX30RA==
+tinacms@^1.5.4:
+  version "1.5.4"
+  resolved "https://registry.yarnpkg.com/tinacms/-/tinacms-1.5.4.tgz#e11894bad5721f8499d43966a2b3a8fcea19e304"
+  integrity sha512-Q5Qi53ydEk+VJ+402xi1qFUOUc23E89OX1q/0cOp79Ct67rs+uBF1Qg/mXMbuzb9CSdXlsfmjsuU1HtxenHSOg==
   dependencies:
     "@graphql-inspector/core" "^4.0.0"
     "@graphql-tools/relay-operation-optimizer" "^6.4.1"
