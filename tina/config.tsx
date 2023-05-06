@@ -5,6 +5,16 @@ import { heroBlockSchema } from '../components/blocks/hero';
 import { testimonialBlockSchema } from '../components/blocks/testimonial';
 import { ColorPickerInput } from '../components/fields/color';
 import { iconSchema } from '../components/util/icon';
+import {
+  featureOnlyTextBlockSchema,
+  leaderBlockSchema,
+  partnerBlockSchema,
+  contactBlockSchema,
+  ImageBlockSchema,
+  CommonContentBlockSchema,
+  pageContentBlockSchema,
+  timelineBlockSchema
+} from './schema';
 
 const branch =
   process.env.NEXT_PUBLIC_TINA_BRANCH || process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_REF || process.env.HEAD || '';
@@ -26,6 +36,103 @@ const config = defineConfig({
   },
   schema: {
     collections: [
+      {
+        label: 'Press',
+        name: 'press',
+        path: 'content/press',
+        ui: {
+          router: ({ document }) => {
+            return `/press/${document._sys.filename}`;
+          }
+        },
+        fields: [
+          {
+            type: 'string',
+            label: 'Title',
+            name: 'title'
+          },
+          // {
+          //   type: 'reference',
+          //   label: 'Author',
+          //   name: 'author',
+          //   collections: ['authors']
+          // },
+          {
+            type: 'datetime',
+            name: 'date',
+            label: 'Posted Date',
+            ui: {
+              dateFormat: 'MMMM DD YYYY',
+              timeFormat: 'hh:mm A'
+            }
+          },
+          // {
+          //   type: 'image',
+          //   clearable: true,
+          //   name: 'heroImg',
+          //   label: 'Illustration'
+          // },
+          {
+            type: 'string',
+            name: 'excerpt',
+            label: 'Excerpt',
+            ui: {
+              component: 'textarea'
+            }
+          },
+          {
+            type: 'string',
+            name: 'body',
+            label: 'Body',
+            ui: {
+              component: 'markdown'
+            },
+            isBody: true
+          },
+          // {
+          //   type: 'object',
+          //   list: true,
+          //   name: 'sections',
+          //   label: 'Body',
+          //   templates: [ImageBlockSchema, CommonContentBlockSchema],
+          //   isBody: true
+          // },
+          {
+            type: 'boolean',
+            name: 'isPublish',
+            label: 'Publish'
+          },
+          {
+            label: 'SEO Social Image',
+            name: 'socialImage',
+            type: 'image'
+            // clearable: true
+          },
+          // {
+          //   type: 'string',
+          //   name: 'socialImageUrl',
+          //   label: 'Social Image URL'
+          // },
+          {
+            type: 'string',
+            name: 'socialTitle',
+            label: 'SEO Social Title',
+            ui: {
+              component: 'text',
+              description: 'Choose press title as social title if not provide'
+            }
+          },
+          {
+            type: 'string',
+            name: 'socialDescription',
+            ui: {
+              component: 'textarea',
+              description: 'Choose first paragraph of press as social description if not provide'
+            },
+            label: 'SEO Social Description'
+          }
+        ]
+      },
       {
         label: 'Blog Posts',
         name: 'post',
@@ -245,7 +352,6 @@ const config = defineConfig({
             type: 'object',
             label: 'Theme',
             name: 'theme',
-            // @ts-ignore
             fields: [
               {
                 type: 'string',
@@ -355,6 +461,14 @@ const config = defineConfig({
               featureBlockSchema,
               contentBlockSchema,
               testimonialBlockSchema
+              //   featureOnlyTextBlockSchema,
+              //   leaderBlockSchema,
+              //   partnerBlockSchema,
+              //   contactBlockSchema,
+              //   ImageBlockSchema,
+              //   CommonContentBlockSchema,
+              //   pageContentBlockSchema,
+              //   timelineBlockSchema
             ]
           }
         ]

@@ -4,22 +4,26 @@
     "icon": {
       "color": "orange",
       "style": "float",
-      "name": "Tina"
+      "name": "gettr"
     },
     "color": "default",
     "nav": [
-      {
-        "href": "",
-        "label": "Home"
-      },
-      {
-        "href": "about",
-        "label": "About"
-      },
-      {
-        "href": "posts",
-        "label": "Blog"
-      }
+        {
+            "href": "",
+            "label": "About"
+          },
+          {
+            "href": "/press",
+            "label": "Press"
+          },
+          {
+            "href": "/career",
+            "label": "Career"
+          },
+          {
+            "href": "https://gettr.com/",
+            "label": "Go to GETTR.com"
+          }
     ]
   },
   "footer": {

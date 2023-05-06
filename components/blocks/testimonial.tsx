@@ -1,18 +1,16 @@
-import React from "react";
-import { Container } from "../util/container";
-import { Section } from "../util/section";
-import type { TinaTemplate } from "tinacms";
+import React from 'react';
+import { Container } from '../util/container';
+import { Section } from '../util/section';
+import type { Template } from 'tinacms';
 
-export const Testimonial = ({ data, parentField = "" }) => {
+export const Testimonial = ({ data, parentField = '' }) => {
   return (
     <Section color={data.color}>
       <Container size="large">
         <blockquote>
           <div
             className={`relative z-10 max-w-3xl mx-auto text-4xl lg:text-5xl font-bold tracking-normal text-center title-font ${
-              data.color === "primary"
-                ? `text-white`
-                : `text-gray-700 dark:text-gray-50`
+              data.color === 'primary' ? `text-white` : `text-gray-700 dark:text-gray-50`
             }`}
           >
             <span
@@ -20,10 +18,7 @@ export const Testimonial = ({ data, parentField = "" }) => {
             >
               &ldquo;
             </span>
-            <p
-              data-tinafield={`${parentField}.quote`}
-              className="relative opacity-95"
-            >
+            <p data-tinafield={`${parentField}.quote`} className="relative opacity-95">
               {data.quote}
             </p>
             <span
@@ -35,9 +30,7 @@ export const Testimonial = ({ data, parentField = "" }) => {
           <div className={`my-8 flex-grow-0`}>
             <span
               className={`block mx-auto h-0.5 w-1/6 ${
-                data.color === "primary"
-                  ? `bg-blue-600`
-                  : `bg-gray-200 dark:bg-gray-700`
+                data.color === 'primary' ? `bg-blue-600` : `bg-gray-200 dark:bg-gray-700`
               }`}
             ></span>
           </div>
@@ -45,9 +38,7 @@ export const Testimonial = ({ data, parentField = "" }) => {
             <p
               data-tinafield={`${parentField}.author`}
               className={`tracking-wide title-font font-bold text-lg ${
-                data.color === "primary"
-                  ? `text-blue-200`
-                  : `text-blue-500 dark:text-blue-300`
+                data.color === 'primary' ? `text-blue-200` : `text-blue-500 dark:text-blue-300`
               }`}
             >
               {data.author}
@@ -59,41 +50,40 @@ export const Testimonial = ({ data, parentField = "" }) => {
   );
 };
 
-export const testimonialBlockSchema: TinaTemplate = {
-  name: "testimonial",
-  label: "Testimonial",
+export const testimonialBlockSchema: Template = {
+  name: 'testimonial',
+  label: 'Testimonial',
   ui: {
-    previewSrc: "/blocks/testimonial.png",
+    previewSrc: '/blocks/testimonial.png',
     defaultItem: {
-      quote:
-        "There are only two hard things in Computer Science: cache invalidation and naming things.",
-      author: "Phil Karlton",
-      color: "primary",
-    },
+      quote: 'There are only two hard things in Computer Science: cache invalidation and naming things.',
+      author: 'Phil Karlton',
+      color: 'primary'
+    }
   },
   fields: [
     {
-      type: "string",
+      type: 'string',
       ui: {
-        component: "textarea",
+        component: 'textarea'
       },
-      label: "Quote",
-      name: "quote",
+      label: 'Quote',
+      name: 'quote'
     },
     {
-      type: "string",
-      label: "Author",
-      name: "author",
+      type: 'string',
+      label: 'Author',
+      name: 'author'
     },
     {
-      type: "string",
-      label: "Color",
-      name: "color",
+      type: 'string',
+      label: 'Color',
+      name: 'color',
       options: [
-        { label: "Default", value: "default" },
-        { label: "Tint", value: "tint" },
-        { label: "Primary", value: "primary" },
-      ],
-    },
-  ],
+        { label: 'Default', value: 'default' },
+        { label: 'Tint', value: 'tint' },
+        { label: 'Primary', value: 'primary' }
+      ]
+    }
+  ]
 };
