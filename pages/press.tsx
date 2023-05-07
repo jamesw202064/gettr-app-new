@@ -9,9 +9,9 @@ import { PressConnectionEdges } from '../tina/__generated__/types';
 export default function PressPage(props) {
   let presses = props?.data?.pressConnection?.edges;
   if (process.env.NEXT_PUBLIC_HIDE_EDIT_BUTTON === '1') {
-    presses = presses.node.filter((item) => item?.node?.isPublish);
+    presses = presses.filter((item) => item?.node?.isPublish);
   }
-  console.log('length', typeof presses);
+  console.log('length', presses.length);
   const all = presses?.sort(function (a, b) {
     return compareDesc(new Date(a.node.date), new Date(b.node.date));
   });

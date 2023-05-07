@@ -1,86 +1,120 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { titleCase } from 'title-case';
+import format from 'date-fns/format';
+import ReactPaginate from 'react-paginate';
+import { useRouter } from 'next/router';
+
 import { TinaMarkdown } from 'tinacms/dist/rich-text';
 import { BsArrowRight } from 'react-icons/bs';
 import { useTheme } from '../layout';
-import format from 'date-fns/format';
 
 export const Presses = ({ data }) => {
-  const theme = useTheme();
-  const titleColorClasses = {
-    blue: 'group-hover:text-blue-600 dark:group-hover:text-blue-300',
-    teal: 'group-hover:text-teal-600 dark:group-hover:text-teal-300',
-    green: 'group-hover:text-green-600 dark:group-hover:text-green-300',
-    red: 'group-hover:text-red-600 dark:group-hover:text-red-300',
-    pink: 'group-hover:text-pink-600 dark:group-hover:text-pink-300',
-    purple: 'group-hover:text-purple-600 dark:group-hover:text-purple-300',
-    orange: 'group-hover:text-orange-600 dark:group-hover:text-orange-300',
-    yellow: 'group-hover:text-yellow-500 dark:group-hover:text-yellow-300'
+  //   console.log("file: presses.tsx:13 ---- data:", data[0].node)
+  const route = useRouter();
+  const page = parseInt(route.query.page as string);
+
+  const itemsPerPage = 10;
+  // We start with an empty list of items.
+  const [currentItems, setCurrentItems] = useState([]);
+  const [pageCount, setPageCount] = useState(0);
+  // Here we use item offsets; we could also use page offsets
+  // following the API or data you're working with.
+  const [itemOffset, setItemOffset] = useState(page ? itemsPerPage * (page - 1) : 0);
+
+  useEffect(() => {
+    // Fetch items from another resources.
+    const pageCount = Math.ceil(data.length / itemsPerPage);
+    const endOffset = itemOffset + itemsPerPage;
+    setCurrentItems(data?.slice(itemOffset, endOffset));
+    setPageCount(pageCount);
+  }, [itemOffset, itemsPerPage]);
+
+  const handlePageClick = (event) => {
+    const newOffset = (event.selected * itemsPerPage) % data.length;
+    const page = Math.floor(newOffset / itemsPerPage) + 1;
+
+    // fix: workaround for smooth scroll not working in firefox, https://github.com/vercel/next.js/issues/12105
+    setTimeout(() => {
+      window.scrollTo({ left: 0, top: 0, behavior: 'smooth' });
+    }, 0);
+    route.push(
+      {
+        pathname: '/press',
+        query: { page }
+      },
+      undefined,
+      { shallow: true, scroll: false }
+    );
+    setItemOffset(newOffset);
   };
 
   return (
-    <>
-      {data?.map((postData) => {
-        //
-        /**
-         *  id:
-      date:
-      title:
-      excerpt:
-      isPublish: true,
-      _sys: [ { } ]
-         * 
-         * 
-         */
+    <div className="max-w-3xl mx-auto space-y-16">
+      {currentItems.map((postData, index) => {
         const post = postData.node;
-        const date = new Date(post.date);
-        let formattedDate = '';
-        if (!isNaN(date.getTime())) {
-          formattedDate = format(date, 'MMM dd, yyyy');
+        console.log('file: presses.tsx:56 ---- post:', post);
+        let formattedDate;
+        if (post.date !== null) {
+          const date = post.date ? new Date(post.date) : '';
+          formattedDate = date ? format(date, 'MMMM d, yyyy') : date;
         }
         return (
-          <Link key={post._sys.filename} href={`/press/` + post._sys.filename} passHref>
-            <a
-              key={post.id}
-              className="group block px-6 sm:px-8 md:px-10 py-10 mb-8 last:mb-0 bg-gray-50 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-1000 rounded-md shadow-sm transition-all duration-150 ease-out hover:shadow-md hover:to-gray-50 dark:hover:to-gray-800"
-            >
-              <h3
-                className={`text-gray-700 dark:text-white text-3xl lg:text-4xl font-semibold title-font mb-5 transition-all duration-150 ease-out ${
-                  titleColorClasses[theme.color]
-                }`}
-              >
-                {post.title}{' '}
-                <span className="inline-block opacity-0 group-hover:opacity-100 transition-all duration-300 ease-out">
-                  <BsArrowRight className="inline-block h-8 -mt-1 ml-1 w-auto opacity-70" />
+          <div key={index}>
+            <p className="text-brand font-bold mb-3">{formattedDate}</p>
+            <Link href={`/press/` + post._sys.filename} passHref>
+              <a className=" font-extrabold text-3.5xl mb-6 leading-none hover:underline">
+                {titleCase(post.title || '')}
+              </a>
+            </Link>
+            <p className="text-sm font-medium mt-6 leading-loose">
+              <Link href={`/press/` + post._sys.filename} passHref>
+                <a key={post.id} className="line-clamp-5 md:line-clamp-3">
+                  {post.excerpt}
+                </a>
+              </Link>
+            </p>
+            <Link href={`/press/` + post._sys.filename} passHref>
+              <a className="inline-block mt-6">
+                <span
+                  className="text-white text-sm font-bold bg-btn1 rounded-full"
+                  style={{
+                    display: 'inline-block',
+                    lineHeight: '21px',
+                    padding: '7.5px 15px'
+                  }}
+                >
+                  Read More
                 </span>
-              </h3>
-              <div className="prose dark:prose-dark w-full max-w-none mb-5 opacity-70">
-                <TinaMarkdown content={post.excerpt} />
-              </div>
-              <div className="flex items-center">
-                <div className="flex-shrink-0 mr-2">
-                  <img
-                    className="h-10 w-10 object-cover rounded-full shadow-sm"
-                    src={post?.author?.avatar}
-                    alt={post?.author?.name}
-                  />
-                </div>
-                <p className="text-base font-medium text-gray-600 group-hover:text-gray-800 dark:text-gray-200 dark:group-hover:text-white">
-                  {post?.author?.name}
-                </p>
-                {formattedDate !== '' && (
-                  <>
-                    <span className="font-bold text-gray-200 dark:text-gray-500 mx-2">—</span>
-                    <p className="text-base text-gray-400 group-hover:text-gray-500 dark:text-gray-300 dark:group-hover:text-gray-150">
-                      {formattedDate}
-                    </p>
-                  </>
-                )}
-              </div>
-            </a>
-          </Link>
+              </a>
+            </Link>
+            <hr className="mt-9 md:mt-16" style={{ background: '#DADFE6' }} />
+          </div>
         );
       })}
-    </>
+
+      <div className="mx-auto">
+        <ReactPaginate
+          nextLabel=">"
+          onPageChange={handlePageClick}
+          pageRangeDisplayed={5}
+          pageCount={pageCount}
+          previousLabel="<"
+          pageClassName="page-item"
+          pageLinkClassName="page-link"
+          previousClassName="page-item"
+          previousLinkClassName="page-link"
+          nextClassName="page-item"
+          nextLinkClassName="page-link"
+          breakLabel="..."
+          breakClassName="page-item"
+          forcePage={page ? page - 1 : 0}
+          breakLinkClassName="page-link"
+          containerClassName="pagination"
+          activeClassName="active"
+          renderOnZeroPageCount={null}
+        />
+      </div>
+    </div>
   );
 };

@@ -1,6 +1,6 @@
 query pressQuery {
     ...LayoutQueryFragment
-    pressConnection {
+    pressConnection(first: 200) {
         edges {
             node {
               id
@@ -20,6 +20,10 @@ query pressQuery {
               ...PressParts
             },
         }
+        pageInfo {
+            hasNextPage
+            endCursor
+        }
     }
 }
 
@@ -35,4 +39,3 @@ query pressPostQuery($relativePath: String!) {
     }
   }
 }
-
