@@ -7,7 +7,7 @@ import { useRouter } from 'next/router';
 
 export const Presses = ({ data }) => {
   const route = useRouter();
-  let page = parseInt(route.query.page as string);
+  const page = parseInt(route.query.page as string);
   // const theme = React.useContext(ThemeContext);
   // const [page, setPage] = useState(1);
 

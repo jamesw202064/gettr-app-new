@@ -160,6 +160,6 @@ export const Icon = ({ data, parentColor = '', className = '' }) => {
 };
 
 const randomProperty = (obj) => {
-  var keys = Object.keys(obj);
+  const keys = Object.keys(obj);
   return obj[keys[(keys.length * Math.random()) << 0]];
 };
