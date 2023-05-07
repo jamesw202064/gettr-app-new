@@ -1,7 +1,7 @@
 import { getStaticPropsForTina } from 'tinacms';
 import { Container } from '../components/container';
 import { Section } from '../components/section';
-import { Presses } from '../components/presses';
+import { Presses } from '../components/press';
 import { SEO } from '../components/seo';
 import { compareDesc } from 'date-fns';
 import { layoutQueryFragment } from '../components/layout';
@@ -9,14 +9,15 @@ import { PressConnection } from '../tina/__generated__/types';
 import { client } from '../tina/__generated__/client';
 
 export default function HomePage(props) {
-  let presses = props?.data?.getPressList?.edges;
+  let presses = props?.data?.pressConnection?.edges;
   if (process.env.NEXT_PUBLIC_HIDE_EDIT_BUTTON === '1') {
-    presses = presses.filter((item) => item?.node?.data?.isPublish);
+    presses = presses.filter((item) => item?.node?.isPublish);
   }
 
   const all = presses?.sort(function (a, b) {
-    return compareDesc(new Date(a.node.data.date), new Date(b.node.data.date));
+    return compareDesc(new Date(a.node.date), new Date(b.node.date));
   });
+  console.log("file: press.tsx:21 ---- all:", all)
 
   return (
     <>
@@ -31,7 +32,8 @@ export default function HomePage(props) {
 }
 
 export const getStaticProps = async () => {
-  const tinaProps = await client.queries.pageQuery();
+  const tinaProps = await client.queries.pressQuery();
+
   //   const tinaProps = (await getStaticPropsForTina({
   //     query: `#graphql
   //       query PageQuery {

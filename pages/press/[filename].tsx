@@ -12,7 +12,21 @@ import { useTina } from 'tinacms/dist/react';
 import { Layout } from '../../components/layout';
 
 // Use the props returned by get static props
-export default function BlogPressPage(props: AsyncReturnType<typeof getStaticProps>['props']) {
+export default function PressPostPage(props: AsyncReturnType<typeof getStaticProps>['props']) {
+  const { data } = useTina({
+    query: props.query,
+    variables: props.variables,
+    data: props.data
+  });
+
+  if (data && data.press) {
+    return (
+      <Layout rawData={data} data={data.global as any}>
+        <Press {...data.press} />
+      </Layout>
+    );
+  }
+
   //   const prev = props.prev;
   //   const next = props.next;
   //   if (props?.data?.getPressDocument?.sys?.filename) {
@@ -34,9 +48,24 @@ export default function BlogPressPage(props: AsyncReturnType<typeof getStaticPro
 }
 
 export const getStaticProps = async ({ params }) => {
-  const tinaProps = await client.queries.press({
+  const tinaProps = await client.queries.pressPostQuery({
     relativePath: `${params.filename}.md`
   });
+
+  const allPosts = await client.queries.pressQuery();
+  console.log("file: [filename].tsx:56 ---- allPosts:", allPosts)
+  
+
+  //   let list = allPosts?.data?.getPressList?.edges;
+  //   if (process.env.NEXT_PUBLIC_HIDE_EDIT_BUTTON === '1') {
+  //     list = list?.filter((item) => item?.node?.data?.isPublish);
+  //   }
+  //   const all = list?.sort(function (a, b) {
+  //     return compareDesc(new Date(a?.node?.data?.date), new Date(b?.node?.data?.date));
+  //   });
+  //   const index = all?.findIndex((item) => {
+  //     return item?.node?.sys?.filename === tinaProps?.data?.getPressDocument?.sys?.filename;
+  //   });
 
   return {
     props: {
@@ -106,13 +135,6 @@ export const getStaticProps = async ({ params }) => {
   //   };
 };
 
-/**
- * To build the blog post pages we just iterate through the list of
- * Press and provide their "filename" as part of the URL path
- *
- * So a blog post at "content/press/hello.md" would
- * be viewable at http://localhost:3000/press/hello
- */
 export const getStaticPaths = async () => {
   const pressListData = await client.queries.pressConnection();
   return {
@@ -121,28 +143,6 @@ export const getStaticPaths = async () => {
     })),
     fallback: 'blocking'
   };
-
-  //   const postsListData = (await staticRequest({
-  //     query: `
-  //       {
-  //         getPressList {
-  //           edges {
-  //             node {
-  //               sys {
-  //                 filename
-  //               }
-  //             }
-  //           }
-  //         }
-  //       }
-  //     `
-  //   })) as { data: { getPressList: PressConnection } };
-  //   return {
-  //     paths: postsListData?.data?.getPressList?.edges.map((post) => ({
-  //       params: { filename: post?.node?._sys.filename }
-  //     })),
-  //     fallback: 'blocking'
-  //   };
 };
 
 export type AsyncReturnType<T extends (...args: any) => Promise<any>> = T extends (...args: any) => Promise<infer R>

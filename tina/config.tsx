@@ -40,6 +40,7 @@ const config = defineConfig({
         label: 'Press',
         name: 'press',
         path: 'content/press',
+        format: 'md',
         ui: {
           router: ({ document }) => {
             return `/press/${document._sys.filename}`;
@@ -51,12 +52,12 @@ const config = defineConfig({
             label: 'Title',
             name: 'title'
           },
-          // {
-          //   type: 'reference',
-          //   label: 'Author',
-          //   name: 'author',
-          //   collections: ['authors']
-          // },
+          {
+            type: 'reference',
+            label: 'Author',
+            name: 'author',
+            collections: ['author']
+          },
           {
             type: 'datetime',
             name: 'date',
@@ -66,12 +67,12 @@ const config = defineConfig({
               timeFormat: 'hh:mm A'
             }
           },
-          // {
-          //   type: 'image',
-          //   clearable: true,
-          //   name: 'heroImg',
-          //   label: 'Illustration'
-          // },
+          {
+            type: 'image',
+            // clearable: true,
+            name: 'heroImg',
+            label: 'Illustration'
+          },
           {
             type: 'string',
             name: 'excerpt',
@@ -89,14 +90,14 @@ const config = defineConfig({
             },
             isBody: true
           },
-          // {
-          //   type: 'object',
-          //   list: true,
-          //   name: 'sections',
-          //   label: 'Body',
-          //   templates: [ImageBlockSchema, CommonContentBlockSchema],
-          //   isBody: true
-          // },
+          {
+            type: 'object',
+            list: true,
+            name: 'sections',
+            label: 'Body',
+            templates: [ImageBlockSchema, CommonContentBlockSchema]
+            // isBody: true
+          },
           {
             type: 'boolean',
             name: 'isPublish',

@@ -418,7 +418,7 @@ export const ImageBlockSchema: Template = {
 };
 
 export const CommonContentBlockSchema: Template = {
-  name: 'content',
+  name: 'common_content',
   label: 'Content',
   ui: {},
   fields: [
@@ -497,7 +497,7 @@ export const featureBlockSchema: Template = {
 };
 
 export const pageContentBlockSchema: Template = {
-  name: 'content',
+  name: 'page_content',
   label: 'Content',
   ui: {
     defaultItem: {

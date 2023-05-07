@@ -1,12 +1,11 @@
-
-import React from "react";
-import { Container } from "../util/container";
-import { Section } from "../util/section";
-import { useTheme } from "../layout";
-import format from "date-fns/format";
-import { TinaMarkdown } from "tinacms/dist/rich-text";
-import { Prism } from "tinacms/dist/rich-text/prism";
-import type { TinaMarkdownContent, Components } from "tinacms/dist/rich-text";
+import React from 'react';
+import { Container } from '../util/container';
+import { Section } from '../util/section';
+import { useTheme } from '../layout';
+import format from 'date-fns/format';
+import { TinaMarkdown } from 'tinacms/dist/rich-text';
+import { Prism } from 'tinacms/dist/rich-text/prism';
+import type { TinaMarkdownContent, Components } from 'tinacms/dist/rich-text';
 
 const components: Components<{
   BlockQuote: {
@@ -24,10 +23,7 @@ const components: Components<{
   };
 }> = {
   code_block: (props) => <Prism {...props} />,
-  BlockQuote: (props: {
-    children: TinaMarkdownContent;
-    authorName: string;
-  }) => {
+  BlockQuote: (props: { children: TinaMarkdownContent; authorName: string }) => {
     return (
       <div>
         <blockquote>
@@ -43,11 +39,11 @@ const components: Components<{
     }, []);
 
     switch (props.format) {
-      case "iso":
+      case 'iso':
         return <span>{dt.toISOString()}</span>;
-      case "utc":
+      case 'utc':
         return <span>{dt.toUTCString()}</span>;
-      case "local":
+      case 'local':
         return <span>{dt.toLocaleDateString()}</span>;
       default:
         return <span>{dt.toLocaleDateString()}</span>;
@@ -95,29 +91,26 @@ const components: Components<{
     <div className="flex items-center justify-center">
       <img src={props.url} alt={props.alt} />
     </div>
-  ),
+  )
 };
 
 export const Post = (props) => {
   const theme = useTheme();
   const titleColorClasses = {
-    blue: "from-blue-400 to-blue-600 dark:from-blue-300 dark:to-blue-500",
-    teal: "from-teal-400 to-teal-600 dark:from-teal-300 dark:to-teal-500",
-    green: "from-green-400 to-green-600",
-    red: "from-red-400 to-red-600",
-    pink: "from-pink-300 to-pink-500",
-    purple:
-      "from-purple-400 to-purple-600 dark:from-purple-300 dark:to-purple-500",
-    orange:
-      "from-orange-300 to-orange-600 dark:from-orange-200 dark:to-orange-500",
-    yellow:
-      "from-yellow-400 to-yellow-500 dark:from-yellow-300 dark:to-yellow-500",
+    blue: 'from-blue-400 to-blue-600 dark:from-blue-300 dark:to-blue-500',
+    teal: 'from-teal-400 to-teal-600 dark:from-teal-300 dark:to-teal-500',
+    green: 'from-green-400 to-green-600',
+    red: 'from-red-400 to-red-600',
+    pink: 'from-pink-300 to-pink-500',
+    purple: 'from-purple-400 to-purple-600 dark:from-purple-300 dark:to-purple-500',
+    orange: 'from-orange-300 to-orange-600 dark:from-orange-200 dark:to-orange-500',
+    yellow: 'from-yellow-400 to-yellow-500 dark:from-yellow-300 dark:to-yellow-500'
   };
 
   const date = new Date(props.date);
-  let formattedDate = "";
+  let formattedDate = '';
   if (!isNaN(date.getTime())) {
-    formattedDate = format(date, "MMM dd, yyyy");
+    formattedDate = format(date, 'MMM dd, yyyy');
   }
 
   return (
@@ -127,18 +120,11 @@ export const Post = (props) => {
           data-tinafield="title"
           className={`w-full relative	mb-8 text-6xl font-extrabold tracking-normal text-center title-font`}
         >
-          <span
-            className={`bg-clip-text text-transparent bg-gradient-to-r ${
-              titleColorClasses[theme.color]
-            }`}
-          >
+          <span className={`bg-clip-text text-transparent bg-gradient-to-r ${titleColorClasses[theme.color]}`}>
             {props.title}
           </span>
         </h2>
-        <div
-          data-tinafield="author"
-          className="flex items-center justify-center mb-16"
-        >
+        <div data-tinafield="author" className="flex items-center justify-center mb-16">
           {props.author && (
             <>
               <div className="flex-shrink-0 mr-4">
@@ -151,9 +137,7 @@ export const Post = (props) => {
               <p className="text-base font-medium text-gray-600 group-hover:text-gray-800 dark:text-gray-200 dark:group-hover:text-white">
                 {props.author.name}
               </p>
-              <span className="font-bold text-gray-200 dark:text-gray-500 mx-2">
-                —
-              </span>
+              <span className="font-bold text-gray-200 dark:text-gray-500 mx-2">—</span>
             </>
           )}
           <p
@@ -166,10 +150,7 @@ export const Post = (props) => {
       </Container>
       {props.heroImg && (
         <div className="px-4 w-full">
-          <div
-            data-tinafield="heroImg"
-            className="relative max-w-4xl lg:max-w-5xl mx-auto"
-          >
+          <div data-tinafield="heroImg" className="relative max-w-4xl lg:max-w-5xl mx-auto">
             <img
               src={props.heroImg}
               className="absolute block rounded-lg w-full h-auto blur-2xl brightness-150 contrast-[0.9] dark:brightness-150 saturate-200 opacity-50 dark:opacity-30 mix-blend-multiply dark:mix-blend-hard-light"

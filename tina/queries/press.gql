@@ -1,0 +1,32 @@
+query pressQuery {
+    ...LayoutQueryFragment
+    pressConnection {
+        edges {
+            node {
+              id
+              date,
+              title,
+              excerpt,
+              isPublish,
+              _sys {
+                filename
+              }
+              ...PressParts
+            },
+        }
+    }
+}
+
+query pressPostQuery($relativePath: String!) {
+  ...LayoutQueryFragment
+  press(relativePath: $relativePath) {
+    ...PressParts
+    author {
+      ... on Author {
+        name
+        avatar
+      }
+    }
+  }
+}
+
