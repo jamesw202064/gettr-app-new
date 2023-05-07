@@ -1,12 +1,5 @@
-import { Press } from '../../components/press';
-import { staticRequest, getStaticPropsForTina } from 'tinacms';
+import { Presses } from '../../components/press';
 import { client } from '../../tina/__generated__/client';
-import { layoutQueryFragment } from '../../components/layout';
-import { PressConnection, PressDocument } from '../../tina/__generated__/types';
-import FourOhFour from '../404';
-import PressGenerating from '../pressGenerating';
-import { compareDesc } from 'date-fns';
-
 import { Post } from '../../components/posts/post';
 import { useTina } from 'tinacms/dist/react';
 import { Layout } from '../../components/layout';
@@ -22,7 +15,7 @@ export default function PressPostPage(props: AsyncReturnType<typeof getStaticPro
   if (data && data.press) {
     return (
       <Layout rawData={data} data={data.global as any}>
-        <Press {...data.press} />
+        <Presses data={data} />
       </Layout>
     );
   }
@@ -53,8 +46,6 @@ export const getStaticProps = async ({ params }) => {
   });
 
   const allPosts = await client.queries.pressQuery();
-  console.log("file: [filename].tsx:56 ---- allPosts:", allPosts)
-  
 
   //   let list = allPosts?.data?.getPressList?.edges;
   //   if (process.env.NEXT_PUBLIC_HIDE_EDIT_BUTTON === '1') {

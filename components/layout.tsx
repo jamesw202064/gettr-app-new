@@ -74,7 +74,7 @@ export const Layout = ({ rawData = '', data = layoutData, children }) => {
             </nav>
           </div>
           <div className="flex-1">{children}</div>
-          <Footer rawData={rawData} data={data?.footer} icon={data?.header.icon} />
+          <Footer />
         </div>
       </Theme>
     </>
