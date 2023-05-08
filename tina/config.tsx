@@ -461,8 +461,8 @@ const config = defineConfig({
               // @ts-ignore
               featureBlockSchema,
               contentBlockSchema,
-              testimonialBlockSchema
-              //   featureOnlyTextBlockSchema
+              testimonialBlockSchema,
+              featureOnlyTextBlockSchema
               //   CommonContentBlockSchema,
               //   leaderBlockSchema,
               //   partnerBlockSchema,
