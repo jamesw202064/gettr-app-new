@@ -462,7 +462,18 @@ const config = defineConfig({
               featureBlockSchema,
               contentBlockSchema,
               testimonialBlockSchema
-              //   featureOnlyTextBlockSchema,
+              //   featureOnlyTextBlockSchema
+              //   CommonContentBlockSchema,
+              //   leaderBlockSchema,
+              //   partnerBlockSchema,
+              //   contactBlockSchema,
+              //   pageContentBlockSchema,
+              //   timelineBlockSchema
+
+              //   pageContentBlockSchema,
+              //   contactBlockSchema,
+              //   leaderBlockSchema,
+              //   partnerBlockSchema
               //   leaderBlockSchema,
               //   partnerBlockSchema,
               //   contactBlockSchema,
@@ -471,6 +482,25 @@ const config = defineConfig({
               //   pageContentBlockSchema,
               //   timelineBlockSchema
             ]
+          },
+          {
+            type: 'image',
+            name: 'socialImage',
+            // clearable: true,
+            label: 'SEO Social Image'
+          },
+          {
+            type: 'string',
+            name: 'socialTitle',
+            label: 'SEO Social Title'
+          },
+          {
+            type: 'string',
+            name: 'socialDescription',
+            ui: {
+              component: 'textarea'
+            },
+            label: 'SEO Social Description'
           }
         ]
       }

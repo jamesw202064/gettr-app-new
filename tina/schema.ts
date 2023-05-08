@@ -1082,14 +1082,12 @@ export default defineSchema({
           list: true,
           name: 'blocks',
           label: 'Sections',
+          ui: {
+            visualSelector: true
+          },
           templates: [
-            // heroBlockSchema,
             featureOnlyTextBlockSchema,
-            // featureBlockSchema,
             pageContentBlockSchema,
-            // testimonialBlockSchema,
-            // timelineBlockSchema,
-            // ImageBlockSchema,
             contactBlockSchema,
             leaderBlockSchema,
             partnerBlockSchema
