@@ -5,6 +5,7 @@ import { Section } from '../section';
 import { Markdown } from '../markdown';
 import { ThemeContext } from '../theme';
 import type { Template } from 'tinacms';
+
 export const Hero = ({ data }) => {
   const theme = React.useContext(ThemeContext);
   const headlineColorClasses = {

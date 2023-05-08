@@ -10,7 +10,6 @@ import { BsArrowRight } from 'react-icons/bs';
 import { useTheme } from '../layout';
 
 export const Presses = ({ data }) => {
-  //   console.log("file: presses.tsx:13 ---- data:", data[0].node)
   const route = useRouter();
   const page = parseInt(route.query.page as string);
 

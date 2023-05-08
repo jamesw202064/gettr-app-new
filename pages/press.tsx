@@ -4,7 +4,6 @@ import { Presses } from '../components/press';
 import { SEO } from '../components/seo';
 import { compareDesc } from 'date-fns';
 import { client } from '../tina/__generated__/client';
-import { PressConnectionEdges } from '../tina/__generated__/types';
 
 export default function PressPage(props) {
   let presses = props?.data?.pressConnection?.edges;
@@ -30,32 +29,6 @@ export default function PressPage(props) {
 
 export const getStaticProps = async () => {
   const tinaProps = await client.queries.pressQuery();
-
-  //   const tinaProps = (await getStaticPropsForTina({
-  //     query: `#graphql
-  //       query PageQuery {
-  //         ${layoutQueryFragment}
-  //         getPressList {
-  //           edges {
-  //             node {
-  //               id
-  //               data {
-  //                 date
-  //                 title
-  //                 excerpt
-  //                 isPublish
-  //               }
-  //               sys {
-  //                 filename
-  //               }
-  //             }
-  //           }
-  //         }
-  //       }
-  //     `,
-  //     variables: {}
-  //   })) as { data: { getPressList: PressConnection } };
-
   return {
     props: {
       ...tinaProps

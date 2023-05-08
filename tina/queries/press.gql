@@ -27,6 +27,41 @@ query pressQuery {
     }
 }
 
+query getPressList {
+     ...LayoutQueryFragment
+    pressConnection(first: 200) {
+        edges {
+            node {
+              id
+              date,
+              title,
+              excerpt,
+              isPublish,
+              _sys {
+                filename
+              },
+            },
+        }
+    }
+}
+
+query getAllPosts{
+    pressConnection(first: 200) {
+        edges {
+            node {
+              id
+              _sys {
+                filename
+                basename
+               }
+               title
+               date
+               isPublish
+            },
+        }
+    }
+}
+
 query pressPostQuery($relativePath: String!) {
   ...LayoutQueryFragment
   press(relativePath: $relativePath) {
@@ -38,4 +73,20 @@ query pressPostQuery($relativePath: String!) {
       }
     }
   }
+}
+
+query getPressDocument($relativePath: String!) {
+    ...LayoutQueryFragment
+    press(relativePath: $relativePath){
+        ...PressParts
+        title
+        date
+        body
+        socialImage
+        socialTitle
+        socialDescription
+        _sys {
+            filename
+        }
+    }
 }
