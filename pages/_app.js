@@ -13,58 +13,9 @@ const App = ({ Component, pageProps }) => {
   console.log('file: _app.js:13 ---- pageProps:', pageProps);
   return (
     <>
-      <TinaEditProvider
-        showEditButton={!Boolean(Number(NEXT_PUBLIC_HIDE_EDIT_BUTTON))}
-        editMode={
-          <TinaCMS
-            branch="main"
-            clientId={NEXT_PUBLIC_TINA_CLIENT_ID}
-            isLocalClient={Boolean(Number(NEXT_PUBLIC_USE_LOCAL_CLIENT))}
-            mediaStore={TinaCloudCloudinaryMediaStore}
-            cmsCallback={(cms) => {
-              import('react-tinacms-editor').then(({ MarkdownFieldPlugin }) => {
-                cms.plugins.add(MarkdownFieldPlugin);
-              });
-            }}
-            documentCreatorCallback={{
-              /**
-               * After a new document is created, redirect to its location
-               */
-              onNewDocument: ({ collection: { slug }, breadcrumbs }) => {
-                const relativeUrl = `/${slug}/${breadcrumbs.join('/')}`;
-                return (window.location.href = relativeUrl);
-              },
-              /**
-               * Only allows documents to be created to the `Blog Posts` Collection
-               */
-              filterCollections: (options) => {
-                return options.filter((option) => option.label === 'Press');
-              }
-            }}
-            /**
-             * Treat the Global collection as a global form
-             */
-            formifyCallback={({ formConfig, createForm, createGlobalForm }) => {
-              if (formConfig.id === 'getGlobalDocument') {
-                return createGlobalForm(formConfig);
-              }
-
-              return createForm(formConfig);
-            }}
-            {...pageProps}
-          >
-            {(livePageProps) => (
-              <Layout rawData={livePageProps} data={livePageProps.data?.getGlobalDocument?.data}>
-                <Component {...livePageProps} />
-              </Layout>
-            )}
-          </TinaCMS>
-        }
-      >
-        <Layout rawData={pageProps} data={pageProps.data?.gl?.data}>
-          <Component {...pageProps} />
-        </Layout>
-      </TinaEditProvider>
+      <Layout rawData={pageProps} data={pageProps.data?.global?.data}>
+        <Component {...pageProps} />
+      </Layout>
     </>
   );
 };

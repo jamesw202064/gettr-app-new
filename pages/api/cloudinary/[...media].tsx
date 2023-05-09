@@ -13,14 +13,12 @@ export default createMediaHandler(
     api_key: '397795863139856',
     api_secret: 'Bf5Ee_gJWT8TXN3CF0B4FwPjl88',
     authorized: async (req, _res) => {
-      console.log('file: [...media].tsx:12 ---- req:', req);
       try {
         if (process.env.NODE_ENV == 'development') {
           return true;
         }
 
         const user = await isAuthorized(req);
-        console.log('file: [...media].tsx:19 ---- user:', user);
 
         return user && user.verified;
       } catch (e) {
