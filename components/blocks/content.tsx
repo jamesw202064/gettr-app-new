@@ -31,9 +31,20 @@ export const contentBlockSchema: Template = {
   },
   fields: [
     {
+      type: 'string',
+      label: 'Title',
+      name: 'title'
+    },
+    {
       type: 'rich-text',
       label: 'Body',
-      name: 'body'
+      name: 'body',
+      isBody: true
+    },
+    {
+      type: 'image',
+      name: 'avatar',
+      label: 'avatar'
     },
     {
       type: 'string',

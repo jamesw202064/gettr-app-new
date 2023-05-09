@@ -23,6 +23,72 @@ query contentQuery($relativePath: String!) {
   ...LayoutQueryFragment
   page(relativePath: $relativePath) {
     ...PageParts
+    __typename
+    id
+    title
+    _sys {
+        filename
+        title
+        basename
+        relativePath
+        extension
+        template
+    }
+    socialImage
+    socialTitle
+    socialDescription
+    blocks {
+        __typename
+        ... on PageBlocksFeatureOnlyTexts {
+        __typename
+        title
+        excerpt
+        color
+            feature_text {
+                title
+                text
+            }
+        }
+        ... on PageBlocksLeadership {
+        __typename
+        title
+        avatar
+        name
+        gettrProfile
+        body
+        quotation
+        color
+        }
+        ... on PageBlocksContact {
+        __typename
+        title
+        body
+        color
+        }
+        ... on PageBlocksContent {
+        __typename
+        title
+        body
+        color
+        avatar
+        }
+        ... on PageBlocksPartner {
+        __typename
+        title
+        avatar
+        color
+        new_yorker
+        vox
+        the_wall_street_journal_ny_post
+        reuters
+        insider
+        mashable
+        new_york_post
+        the_daily_beast
+        news_week
+        nbc_news
+        }
+    }
   }
 }
 
