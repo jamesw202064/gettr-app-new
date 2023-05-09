@@ -3,6 +3,7 @@ import { Hero } from '../components/blocks/hero';
 export default function PressGenerating() {
   return (
     <Hero
+      parentField={null}
       data={{
         color: 'default',
         headline: 'Press Page is Generating...',

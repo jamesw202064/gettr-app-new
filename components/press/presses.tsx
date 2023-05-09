@@ -52,7 +52,6 @@ export const Presses = ({ data }) => {
     <div className="max-w-3xl mx-auto space-y-16">
       {currentItems.map((postData, index) => {
         const post = postData.node;
-        console.log('file: presses.tsx:56 ---- post:', post);
         let formattedDate;
         if (post.date !== null) {
           const date = post.date ? new Date(post.date) : '';

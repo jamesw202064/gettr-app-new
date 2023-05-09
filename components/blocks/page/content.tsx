@@ -6,7 +6,7 @@ import { Markdown } from '../../markdown';
 import Apple from 'public/apple.svg';
 import Android from 'public/android.svg';
 
-export const Content = ({ data }) => {
+export const Content = ({ data, parentField }) => {
   return (
     <Section color={data.color}>
       <Container size={'medium'} className="px-4.5 lg:px-0 md:py-32 md:max-w-max_section">

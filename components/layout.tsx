@@ -16,7 +16,7 @@ export const Layout = ({ rawData = '', data = layoutData, children }) => {
   const route = useRouter();
   const breadcrumbLink = route.asPath === '/' ? '/' : route.asPath.startsWith('/career') ? '/career' : '/press';
   const breadcrumbText = route.asPath === '/' ? 'About' : route.asPath.startsWith('/career') ? 'Career' : 'Press';
-
+  console.log('data.theme.font', data.theme.font);
   return (
     <>
       <Head>

@@ -20,7 +20,6 @@ export const Hero = ({ data, parentField }) => {
     yellow: 'from-yellow-400 to-yellow-600'
   };
 
-  console.log('file: hero.tsx:22 ---- data.text:', data, data.text);
   return (
     <Section color={data.color}>
       <Container size="large" className="grid grid-cols-1 lg:grid-cols-3 gap-x-10 gap-y-8 items-center justify-center">

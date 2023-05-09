@@ -10,7 +10,6 @@ export default function PressPage(props) {
   if (process.env.NEXT_PUBLIC_HIDE_EDIT_BUTTON === '1') {
     presses = presses.filter((item) => item?.node?.isPublish);
   }
-  console.log('length', presses.length);
   const all = presses?.sort(function (a, b) {
     return compareDesc(new Date(a.node.date), new Date(b.node.date));
   });

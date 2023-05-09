@@ -9,7 +9,6 @@ import { Features } from '../features';
 import { Hero } from '../hero';
 
 export const PageBlocks = (props: Page) => {
-  console.log("file: index.tsx:12 ---- props:", props)
   return (
     <>
       {props?.blocks?.map(function (block, i) {
@@ -17,43 +16,43 @@ export const PageBlocks = (props: Page) => {
           case 'PageBlocksFeatures':
             return (
               <React.Fragment key={i + block.__typename}>
-                <Features data={block} />
+                <Features data={block} parentField={`blocks.${i}`} />
               </React.Fragment>
             );
           case 'PageBlocksHero':
             return (
               <React.Fragment key={i + block.__typename}>
-                <Hero data={block} />
+                <Hero data={block} parentField={`blocks.${i}`} />
               </React.Fragment>
             );
           case 'PageBlocksContent':
             return (
               <React.Fragment key={i + block.__typename}>
-                <Content data={block} />
+                <Content data={block} parentField={`blocks.${i}`} />
               </React.Fragment>
             );
           case 'PageBlocksContact':
             return (
               <React.Fragment key={i + block.__typename}>
-                <Contact data={block} />
+                <Contact data={block} parentField={`blocks.${i}`} />
               </React.Fragment>
             );
           case 'PageBlocksPartner':
             return (
               <React.Fragment key={i + block.__typename}>
-                <Partner data={block} />
+                <Partner data={block} parentField={`blocks.${i}`} />
               </React.Fragment>
             );
           case 'PageBlocksLeadership':
             return (
               <React.Fragment key={i + block.__typename}>
-                <Leadership data={block} />
+                <Leadership data={block} parentField={`blocks.${i}`} />
               </React.Fragment>
             );
           case 'PageBlocksFeatureOnlyTexts':
             return (
               <React.Fragment key={i + block.__typename}>
-                <FeaturesOnlyText data={block} />
+                <FeaturesOnlyText data={block} parentField={`blocks.${i}`} />
               </React.Fragment>
             );
           default:

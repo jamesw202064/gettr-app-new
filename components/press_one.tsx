@@ -22,7 +22,6 @@ const extractSEODescription = (md) => {
 };
 
 export const Press = ({ data, prev, next }) => {
-  console.log('file: press_one.tsx:25 ---- prev:', prev);
   // const titleColorClasses = {
   //   blue: 'from-blue-400 to-blue-600 dark:from-blue-300 dark:to-blue-500',
   //   teal: 'from-teal-400 to-teal-600 dark:from-teal-300 dark:to-teal-500',

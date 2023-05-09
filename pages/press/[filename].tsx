@@ -9,7 +9,6 @@ import FourOhFour from '../404';
 // Use the props returned by get static props
 export default function PressPostPage(props: AsyncReturnType<typeof getStaticProps>['props']) {
   const prev = props.prev;
-  console.log("file: [filename].tsx:12 ---- prev:", prev)
   const next = props.next;
   if (props?.data.press) {
     return <Press data={props?.data?.press} prev={prev} next={next} />;

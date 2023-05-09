@@ -41,7 +41,6 @@ export const getStaticProps = async ({ params }) => {
   const tinaProps = await client.queries.contentQuery({
     relativePath: `${params.filename}.md`
   });
-  console.log('file: [filename].tsx:43 ---- tinaProps:', tinaProps);
   return {
     props: {
       data: tinaProps.data,

@@ -4,7 +4,6 @@ import { Container } from '../../container';
 // import { Icon } from '../../icon';
 
 export const Partner = ({ data, parentField }) => {
-  console.log('file: partner.tsx:7 ---- data:', data);
   return (
     <Section color={data.color}>
       <Container size={'medium'} className={`px-4.5 lg:px-0 md:py-32 md:max-w-max_section`}>
