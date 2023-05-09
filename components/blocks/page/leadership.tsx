@@ -51,6 +51,7 @@ export const Leadership = ({ data }) => {
               CEO, GETTR
               <br />
               <div
+                data-id="GGGGGGGGGG"
                 className="font-bold"
                 style={{ color: '#000', fontSize: 16, fontWeight: 'bold', lineHeight: '21px' }}
               >
@@ -60,6 +61,7 @@ export const Leadership = ({ data }) => {
           </div>
         </div>
         <div
+          data-id="HHHHHHHH"
           style={{
             fontSize: '15px',
             fontWeight: 500,

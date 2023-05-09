@@ -4,6 +4,8 @@ import remarkGfm from 'remark-gfm';
 import { TinaMarkdown } from 'tinacms/dist/rich-text';
 
 export const Markdown: React.FC<Options> = ({ children, ...rest }) => {
+  console.log('file: markdown.tsx:8 ---- children:', children);
+  console.log('file: markdown.tsx:8 ---- rest:', rest);
   return (
     <ReactMarkdown
       className="press"

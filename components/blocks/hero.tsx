@@ -19,6 +19,7 @@ export const Hero = ({ data }) => {
     yellow: 'from-yellow-400 to-yellow-600'
   };
 
+  console.log('file: hero.tsx:22 ---- data.text:', data, data.text);
   return (
     <Section color={data.color}>
       <Container size="large" className="grid grid-cols-1 lg:grid-cols-3 gap-x-10 gap-y-8 items-center justify-center">
@@ -42,11 +43,12 @@ export const Hero = ({ data }) => {
           )}
           {data.text && (
             <div
+              data-id="CCCCCCC"
               className={`prose prose-lg mx-auto lg:mx-0 mb-10 ${
                 data.color === 'primary' ? `prose-primary` : `dark:prose-dark`
               }`}
             >
-              <Markdown>{data.text}</Markdown>
+              <Markdown children={data.text} />
             </div>
           )}
           {data.actions && (
