@@ -1,39 +1,28 @@
-import { Post } from "../../components/posts/post";
-import { client } from "../../tina/__generated__/client";
-import { useTina } from "tinacms/dist/react";
-import { Layout } from "../../components/layout";
+import { Post } from '../../components/posts/post';
+import { client } from '../../tina/__generated__/client';
+import { useTina } from 'tinacms/dist/react';
 
 // Use the props returned by get static props
-export default function BlogPostPage(
-  props: AsyncReturnType<typeof getStaticProps>["props"]
-) {
+export default function BlogPostPage(props: AsyncReturnType<typeof getStaticProps>['props']) {
   const { data } = useTina({
     query: props.query,
     variables: props.variables,
-    data: props.data,
+    data: props.data
   });
   if (data && data.post) {
-    return (
-      <Layout rawData={data} data={data.global as any}>
-        <Post {...data.post} />
-      </Layout>
-    );
+    return <Post {...data.post} />;
   }
-  return (
-    <Layout>
-      <div>No data</div>;
-    </Layout>
-  );
+  return <div>No data</div>;
 }
 
 export const getStaticProps = async ({ params }) => {
   const tinaProps = await client.queries.blogPostQuery({
-    relativePath: `${params.filename}.mdx`,
+    relativePath: `${params.filename}.mdx`
   });
   return {
     props: {
-      ...tinaProps,
-    },
+      ...tinaProps
+    }
   };
 };
 
@@ -48,11 +37,12 @@ export const getStaticPaths = async () => {
   const postsListData = await client.queries.postConnection();
   return {
     paths: postsListData.data.postConnection.edges.map((post) => ({
-      params: { filename: post.node._sys.filename },
+      params: { filename: post.node._sys.filename }
     })),
-    fallback: "blocking",
+    fallback: 'blocking'
   };
 };
 
-export type AsyncReturnType<T extends (...args: any) => Promise<any>> =
-  T extends (...args: any) => Promise<infer R> ? R : any;
+export type AsyncReturnType<T extends (...args: any) => Promise<any>> = T extends (...args: any) => Promise<infer R>
+  ? R
+  : any;

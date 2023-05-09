@@ -30,10 +30,12 @@ export default function HomePage(props: AsyncReturnType<typeof getStaticProps>['
   const description = data?.page?.socialDescription || ``;
   const image = data?.page?.socialImage || `https://gettr.com/media/jason-miller.png`;
   return (
+    // <Layout rawData={data} data={data.global as any}>
     <>
       <SEO title={title} description={description} imageUrl={image} />
       <Blocks {...props.data.page} />
     </>
+    // </Layout>
   );
 }
 

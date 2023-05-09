@@ -187,7 +187,7 @@ export const featureOnlyTextBlockSchema: Template = {
       label: 'Feature Text',
       name: 'feature_text',
       type: 'object',
-      //   list: true,
+      list: true,
       //   ui: {},
       fields: [
         {

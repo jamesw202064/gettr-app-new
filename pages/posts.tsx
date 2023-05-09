@@ -1,22 +1,17 @@
-import { Container } from "../components/util/container";
-import { Section } from "../components/util/section";
-import { Posts } from "../components/posts";
-import { client } from "../tina/__generated__/client";
-import { Layout } from "../components/layout";
+import { Container } from '../components/util/container';
+import { Section } from '../components/util/section';
+import { Posts } from '../components/posts';
+import { client } from '../tina/__generated__/client';
 
-export default function HomePage(
-  props: AsyncReturnType<typeof getStaticProps>["props"]
-) {
+export default function HomePage(props: AsyncReturnType<typeof getStaticProps>['props']) {
   const posts = props.data.postConnection.edges;
 
   return (
-    <Layout>
-      <Section className="flex-1">
-        <Container size="large" width="small">
-          <Posts data={posts} />
-        </Container>
-      </Section>
-    </Layout>
+    <Section className="flex-1">
+      <Container size="large" width="small">
+        <Posts data={posts} />
+      </Container>
+    </Section>
   );
 }
 
@@ -24,10 +19,11 @@ export const getStaticProps = async () => {
   const tinaProps = await client.queries.pageQuery();
   return {
     props: {
-      ...tinaProps,
-    },
+      ...tinaProps
+    }
   };
 };
 
-export type AsyncReturnType<T extends (...args: any) => Promise<any>> =
-  T extends (...args: any) => Promise<infer R> ? R : any;
+export type AsyncReturnType<T extends (...args: any) => Promise<any>> = T extends (...args: any) => Promise<infer R>
+  ? R
+  : any;
