@@ -429,15 +429,15 @@ const config = defineConfig({
         name: 'page',
         path: 'content/pages',
         ui: {
-        //   router: ({ document }) => {
-        //     if (document._sys.filename === 'home') {
-        //       return `/`;
-        //     }
-        //     if (document._sys.filename === 'about') {
-        //       return `/about`;
-        //     }
-        //     return undefined;
-        //   }
+          //   router: ({ document }) => {
+          //     if (document._sys.filename === 'home') {
+          //       return `/`;
+          //     }
+          //     if (document._sys.filename === 'about') {
+          //       return `/about`;
+          //     }
+          //     return undefined;
+          //   }
         },
         fields: [
           {
