@@ -463,24 +463,10 @@ const config = defineConfig({
               contentBlockSchema,
               testimonialBlockSchema,
               featureOnlyTextBlockSchema,
-              //   CommonContentBlockSchema
               contactBlockSchema,
               leaderBlockSchema,
-              partnerBlockSchema
-              //   pageContentBlockSchema,
-              //   timelineBlockSchema
-
-              //   pageContentBlockSchema,
-              //   contactBlockSchema,
-              //   leaderBlockSchema,
-              //   partnerBlockSchema
-              //   leaderBlockSchema,
-              //   partnerBlockSchema,
-              //   contactBlockSchema,
-              //   ImageBlockSchema,
-              //   CommonContentBlockSchema,
-              //   pageContentBlockSchema,
-              //   timelineBlockSchema
+              partnerBlockSchema,
+              pageContentBlockSchema
             ]
           },
           {

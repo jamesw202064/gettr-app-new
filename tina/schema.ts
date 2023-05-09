@@ -519,12 +519,10 @@ export const pageContentBlockSchema: Template = {
       name: 'title'
     },
     {
-      type: 'string',
-      ui: {
-        component: 'markdown'
-      },
+      type: 'rich-text',
       label: 'Body',
-      name: 'body'
+      name: 'body',
+      isBody: true
     },
     {
       type: 'image',
@@ -767,19 +765,29 @@ export default defineSchema({
       name: 'press',
       path: 'content/press',
       ui: {
+        router: ({ document }) => {
+          if (document._sys.filename === 'home') {
+            return '/';
+          }
+          if (document._sys.filename === 'about') {
+            return `/about`;
+          }
+          return undefined;
+        }
         // defaultItem: {
-        //   title: 'title',
-        //   // author: 'anonymous',
-        //   date: '',
-        //   // heroImg: '',
-        //   excerpt: '',
-        //   body: 'context',
-        //   isPublish: false,
-        //   socialImage: '',
-        //   socialImageUrl: 'https://gettr.com/static/media/ceo.41d55b2a.png',
-        //   socialTitle: '',
-        //   socialDescription: ''
+        //   title: 'title'
+        //   //   // author: 'anonymous',
+        //   //   date: '',
+        //   //   // heroImg: '',
+        //   //   excerpt: '',
+        //   //   body: 'context',
+        //   //   isPublish: false,
+        //   //   socialImage: '',
+        //   //   socialImageUrl: 'https://gettr.com/static/media/ceo.41d55b2a.png',
+        //   //   socialTitle: '',
+        //   //   socialDescription: ''
         // }
+        // fields: []
       },
       fields: [
         {
