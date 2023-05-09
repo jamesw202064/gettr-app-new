@@ -184,11 +184,11 @@ export const featureOnlyTextBlockSchema: Template = {
       label: 'Excerpt'
     },
     {
-      type: 'object',
       label: 'Feature Text',
-      name: 'items',
-      list: true,
-      ui: {},
+      name: 'feature_test',
+      type: 'object',
+      //   list: true,
+      //   ui: {},
       fields: [
         {
           type: 'string',
@@ -237,28 +237,32 @@ export const leaderBlockSchema: Template = {
       label: 'name'
     },
     {
-      type: 'string',
-      ui: {
-        component: 'markdown'
-      },
+      type: 'rich-text',
+      //   ui: {
+      //     component: 'markdown'
+      //   },
       name: 'gettrProfile',
-      label: 'GETTR Profile Link'
+      label: 'GETTR Profile Link',
+      isBody: true
     },
     {
-      type: 'string',
-      ui: {
-        component: 'markdown'
-      },
+      type: 'rich-text',
+      //   ui: {
+      //     component: 'markdown'
+      //   },
       label: 'Body',
-      name: 'body'
+      name: 'body',
+      isBody: true
     },
     {
-      type: 'string',
-      ui: {
-        component: 'markdown'
-      },
+      type: 'rich-text',
+      //   type: 'string',
+      //   ui: {
+      //     component: 'markdown'
+      //   },
       label: 'Quotation',
-      name: 'quotation'
+      name: 'quotation',
+      isBody: true
     },
     {
       type: 'string',
@@ -363,8 +367,8 @@ export const partnerBlockSchema: Template = {
 };
 
 export const contactBlockSchema: Template = {
-  name: 'contact',
   label: 'Media Contact',
+  name: 'contact',
   ui: {},
   fields: [
     {
@@ -373,12 +377,13 @@ export const contactBlockSchema: Template = {
       label: 'Title'
     },
     {
-      type: 'string',
-      ui: {
-        component: 'markdown'
-      },
+      type: 'rich-text',
+      //   ui: {
+      //     component: 'markdown'
+      //   },
       label: 'Body',
-      name: 'body'
+      name: 'body',
+      isBody: true
     },
     {
       type: 'string',

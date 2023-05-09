@@ -462,11 +462,11 @@ const config = defineConfig({
               featureBlockSchema,
               contentBlockSchema,
               testimonialBlockSchema,
-              featureOnlyTextBlockSchema
-              //   CommonContentBlockSchema,
-              //   leaderBlockSchema,
-              //   partnerBlockSchema,
-              //   contactBlockSchema,
+              featureOnlyTextBlockSchema,
+              //   CommonContentBlockSchema
+              contactBlockSchema,
+              leaderBlockSchema,
+              partnerBlockSchema
               //   pageContentBlockSchema,
               //   timelineBlockSchema
 
