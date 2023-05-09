@@ -2,11 +2,12 @@ import * as React from 'react';
 import { Actions } from '../actions';
 import { Container } from '../container';
 import { Section } from '../section';
-import { Markdown } from '../markdown';
+// import { Markdown } from '../markdown';
 import { ThemeContext } from '../theme';
+import { TinaMarkdown } from 'tinacms/dist/rich-text';
 import type { Template } from 'tinacms';
 
-export const Hero = ({ data }) => {
+export const Hero = ({ data, parentField }) => {
   const theme = React.useContext(ThemeContext);
   const headlineColorClasses = {
     blue: 'from-blue-400 to-blue-600',
@@ -48,7 +49,7 @@ export const Hero = ({ data }) => {
                 data.color === 'primary' ? `prose-primary` : `dark:prose-dark`
               }`}
             >
-              <Markdown children={data.text} />
+              <TinaMarkdown content={data.text} />
             </div>
           )}
           {data.actions && (

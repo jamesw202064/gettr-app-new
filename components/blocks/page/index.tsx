@@ -5,8 +5,8 @@ import { Contact } from './contact';
 import { Leadership } from './leadership';
 import { Partner } from './partner';
 import { FeaturesOnlyText } from './featuresOnlyText';
-import { Hero } from '../hero';
 import { Features } from '../features';
+import { Hero } from '../hero';
 
 export const PageBlocks = (props: Page) => {
   console.log("file: index.tsx:12 ---- props:", props)

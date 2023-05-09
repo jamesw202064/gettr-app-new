@@ -3,7 +3,7 @@ import { Section } from '../../section';
 import { Container } from '../../container';
 // import { Icon } from '../../icon';
 
-export const Partner = ({ data }) => {
+export const Partner = ({ data, parentField }) => {
   console.log('file: partner.tsx:7 ---- data:', data);
   return (
     <Section color={data.color}>

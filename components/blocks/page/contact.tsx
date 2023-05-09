@@ -2,13 +2,15 @@ import { Section } from '../../../components/section';
 import { Container } from '../../../components/container';
 import { Markdown } from '../../../components/markdown';
 
-export const Contact = ({ data }) => {
+export const Contact = ({ data, parentField }) => {
   return (
     <Section color={data.color}>
       <Container size={'large'} className={`md:flex flex-wrap gap-x-10 gap-y-8 text-left lg:px-0 md:max-w-max_section`}>
         <div className="md:grid lg:grid-cols-2">
           <div className="contact__text">
-            <div data-id="DDDDDDDD" className="text-brand font-extrabold text-3.5xl tracking-wide">{data.title}</div>
+            <div data-id="DDDDDDDD" className="text-brand font-extrabold text-3.5xl tracking-wide">
+              {data.title}
+            </div>
             <Markdown className="contact__text">{data.body}</Markdown>
             {/* <p>We love working with journalists to share captivating stories. Send us an email and our team will be in touch very soon.</p>
                         <p>We would greatly appreciate if you can include the following details in your email:</p>

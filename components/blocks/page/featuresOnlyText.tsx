@@ -17,7 +17,7 @@ export const FeatureText = ({ featuresColor, data }) => {
   );
 };
 
-export const FeaturesOnlyText = ({ data }) => {
+export const FeaturesOnlyText = ({ data, parentField }) => {
   return (
     <Section color={data?.color}>
       <Container className={`flex flex-wrap text-left px-4.5 lg:px-0 md:py-32 md:max-w-max_section`} size={'medium'}>
