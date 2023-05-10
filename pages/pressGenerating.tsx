@@ -12,10 +12,7 @@ export default function PressGenerating() {
           {
             label: 'Refresh Page Now',
             type: 'button',
-            icon: true,
-            onClick() {
-              window?.location?.reload();
-            }
+            icon: true
           }
         ]
       }}
