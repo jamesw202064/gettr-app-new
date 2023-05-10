@@ -375,21 +375,7 @@ export const contactBlockSchema: Template = {
     {
       type: 'rich-text',
       label: 'Body',
-      name: 'body',
-      isBody: true,
-      templates: [
-        {
-          name: 'Callout',
-          label: 'Callout',
-          fields: [
-            {
-              name: 'message',
-              label: 'Message',
-              type: 'string'
-            }
-          ]
-        }
-      ]
+      name: 'body'
     },
     {
       type: 'string',
