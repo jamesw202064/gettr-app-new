@@ -1,24 +1,13 @@
-// import { Actions } from '../../actions';
 import { Section } from '../../section';
 import { Container } from '../../container';
-// import { Icon } from '../../icon';
+import { PageBlocksFeatureOnlyTexts } from '../../../tina/__generated__/types';
+interface IFeaturesOnlyText {
+  data: PageBlocksFeatureOnlyTexts;
+  parentField?: string;
+}
 
-// export const FeatureText = ({ featuresColor, data }) => {
-//   return (
-//     <div
-//       className="flex-1 flex flex-col gap-6 text-center items-center lg:items-start lg:text-left max-w-xl mx-auto"
-//       style={{ flexBasis: '16rem' }}
-//     >
-//       {data.icon && <Icon parentColor={featuresColor} data={data.icon} />}
-//       {data.title && <h3 className="text-2xl font-semibold title-font tracking-wide">{data.title}</h3>}
-//       {data.text && <p className="text-base opacity-80 leading-relaxed">{data.text}</p>}
-//       {data.actions && <Actions actions={data.actions} />}
-//     </div>
-//   );
-// };
-
-export const FeaturesOnlyText = ({ data, parentField }) => {
-  console.log("file: featuresOnlyText.tsx:21 ---- data:", data)
+export const FeaturesOnlyText = ({ data }: IFeaturesOnlyText) => {
+  console.log('file: featuresOnlyText.tsx:21 ---- data:', data);
   return (
     <Section color={data?.color}>
       <Container className={`flex flex-wrap text-left px-4.5 lg:px-0 md:py-32 md:max-w-max_section`} size={'medium'}>

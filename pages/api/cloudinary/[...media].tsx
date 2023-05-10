@@ -12,7 +12,7 @@ export default createMediaHandler(
     cloud_name: 'djlyeefw7',
     api_key: '397795863139856',
     api_secret: 'Bf5Ee_gJWT8TXN3CF0B4FwPjl88',
-    authorized: async (req, _res) => {
+    authorized: async (req) => {
       try {
         if (process.env.NODE_ENV == 'development') {
           return true;

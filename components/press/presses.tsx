@@ -5,10 +5,6 @@ import format from 'date-fns/format';
 import ReactPaginate from 'react-paginate';
 import { useRouter } from 'next/router';
 
-import { TinaMarkdown } from 'tinacms/dist/rich-text';
-import { BsArrowRight } from 'react-icons/bs';
-import { useTheme } from '../layout';
-
 export const Presses = ({ data }) => {
   const route = useRouter();
   const page = parseInt(route.query.page as string);

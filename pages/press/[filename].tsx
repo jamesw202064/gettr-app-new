@@ -1,6 +1,5 @@
 import { Press } from '../../components/press_one';
 import { client } from '../../tina/__generated__/client';
-import { Post } from '../../components/posts/post';
 import { useTina } from 'tinacms/dist/react';
 import { compareDesc } from 'date-fns';
 import PressGenerating from '../pressGenerating';

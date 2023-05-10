@@ -2,12 +2,16 @@ import * as React from 'react';
 import { Actions } from '../actions';
 import { Container } from '../container';
 import { Section } from '../section';
-// import { Markdown } from '../markdown';
 import { ThemeContext } from '../theme';
 import { TinaMarkdown } from 'tinacms/dist/rich-text';
 import type { Template } from 'tinacms';
+import { PageBlocksHero } from '../../tina/__generated__/types';
 
-export const Hero = ({ data, parentField }) => {
+interface IHero {
+  data: PageBlocksHero;
+  parentField?: string;
+}
+export const Hero = ({ data }: IHero) => {
   const theme = React.useContext(ThemeContext);
   const headlineColorClasses = {
     blue: 'from-blue-400 to-blue-600',

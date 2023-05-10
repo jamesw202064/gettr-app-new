@@ -3,14 +3,14 @@ import { Container } from '../util/container';
 import { Section } from '../util/section';
 import { TinaMarkdown } from 'tinacms/dist/rich-text';
 import type { Template } from 'tinacms';
-
-// import { Container } from '../../container';
-// import { Section } from '../../section';
-import { Markdown } from '../markdown';
 import Apple from '../../public/apple.svg';
 import Android from '../../public/android.svg';
-
-export const Content = ({ data, parentField = '' }) => {
+import { PageBlocksContent } from '../../tina/__generated__/types';
+interface IContent {
+  data: PageBlocksContent;
+  parentField?: string;
+}
+export const Content = ({ data }: IContent) => {
   console.log('file: content.tsx:14 ---- data:', data);
   return (
     <Section color={data.color}>
@@ -55,16 +55,6 @@ export const Content = ({ data, parentField = '' }) => {
         </div>
       </Container>
     </Section>
-    // <Section color={data.color}>
-    //   <Container
-    //     className={`prose prose-lg ${data.color === 'primary' ? `prose-primary` : `dark:prose-dark`}`}
-    //     data-tinafield={`${parentField}.body`}
-    //     size="large"
-    //     width="medium"
-    //   >
-    //     <TinaMarkdown content={data.body} />
-    //   </Container>
-    // </Section>
   );
 };
 

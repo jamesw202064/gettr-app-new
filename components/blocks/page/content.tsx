@@ -5,8 +5,14 @@ import { Section } from '../../section';
 import { Markdown } from '../../markdown';
 import Apple from 'public/apple.svg';
 import Android from 'public/android.svg';
+import { PageBlocksContent } from '../../../tina/__generated__/types';
 
-export const Content = ({ data, parentField }) => {
+interface IContent {
+  data: PageBlocksContent;
+  parentField?: string;
+}
+
+export const Content = ({ data }: IContent) => {
   return (
     <Section color={data.color}>
       <Container size={'medium'} className="px-4.5 lg:px-0 md:py-32 md:max-w-max_section">
