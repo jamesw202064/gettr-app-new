@@ -1,6 +1,6 @@
 // import { Blocks } from '../components/blocks-renderer';
 import { useTina } from 'tinacms/dist/react';
-// import { Layout } from '../components/layout';
+import { Layout } from '../components/layout';
 import { client } from '../tina/__generated__/client';
 
 // import { staticRequest } from 'tinacms';
@@ -13,7 +13,7 @@ import { SEO } from '../components/seo';
 export default function HomePage(props: AsyncReturnType<typeof getStaticProps>['props']) {
   //   const title = props?.data?.page || `About`;
   //   const description = props?.data?.page?.title || ``;
-
+  console.log('123123');
   //   const image =
   //     (props?.data?.page?.blocks[0] && props?.data?.page?.blocks[0]) || `https://gettr.com/media/jason-miller.png`;
   const { data } = useTina({
@@ -30,12 +30,10 @@ export default function HomePage(props: AsyncReturnType<typeof getStaticProps>['
   const description = data?.page?.socialDescription || ``;
   const image = data?.page?.socialImage || `https://gettr.com/media/jason-miller.png`;
   return (
-    // <Layout rawData={data} data={data.global as any}>
     <>
       <SEO title={title} description={description} imageUrl={image} />
-      <Blocks {...props.data.page} />
+      <Blocks {...data.page} />
     </>
-    // </Layout>
   );
 }
 

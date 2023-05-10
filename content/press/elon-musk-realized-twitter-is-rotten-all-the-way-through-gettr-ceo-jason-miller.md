@@ -2,7 +2,7 @@
 title: >-
   Elon Musk realized Twitter is “rotten all the way through”: GETTR CEO Jason
   Miller
-date: '2022-04-11T20:35:00.000Z'
+date: '2022-04-11T20:00:00.000Z'
 excerpt: >-
   Twitter is a “fundamentally broken product” with a culture of political
   discrimination that cannot be fixed, GETTR CEO Jason Miller said Monday after
@@ -11,6 +11,7 @@ excerpt: >-
   shareholder...
 isPublish: true
 ---
+
 
 Twitter is a “fundamentally broken product” with a culture of political discrimination that cannot be fixed, [GETTR](https://gettr.us5.list-manage.com/track/click?u=ba369d366bf6ca0ee2e11d0b9&id=2c2b7154e2&e=a9271237a5) CEO Jason Miller said Monday after it emerged Musk had rejected a seat on the board following his purchase of a 9 percent stake in the Big Tech platform which made him its largest shareholder.  
   

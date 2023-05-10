@@ -795,7 +795,7 @@ export default defineSchema({
         // }
         // fields: []
       },
-      
+      format: 'md',
       fields: [
         {
           type: 'string',
@@ -832,12 +832,18 @@ export default defineSchema({
           }
         },
         {
-          type: 'rich-text',
+          type: 'string',
           name: 'body',
           label: 'Body',
           ui: {
             component: 'markdown'
           },
+          isBody: true
+        },
+        {
+          type: 'rich-text',
+          name: 'body1',
+          label: 'Body1',
           isBody: true
         },
         // {

@@ -11,6 +11,7 @@ import Apple from '../../public/apple.svg';
 import Android from '../../public/android.svg';
 
 export const Content = ({ data, parentField = '' }) => {
+  console.log("file: content.tsx:14 ---- data:", data)
   return (
     <Section color={data.color}>
       <Container size={'medium'} className="px-4.5 lg:px-0 md:py-32 md:max-w-max_section">
@@ -24,7 +25,8 @@ export const Content = ({ data, parentField = '' }) => {
         </h1>
         <div className="md:flex gap-8">
           <div className="flex-1">
-            <Markdown className="content__markdown page-content" children={data.body} />
+            {/* <Markdown className="content__markdown page-content" children={data.body} /> */}
+            <TinaMarkdown content={data.body}/>
           </div>
           <div className="flex-1 flex justify-center">
             <img alt="gettr_concept" style={{ maxWidth: 440 }} className="w-full" src={data.avatar} />
