@@ -56,92 +56,16 @@ export const getStaticProps = async ({ params }) => {
       next: list?.[index + 1] ? list?.[index + 1] : null
     }
   };
-
-  //   let list = allPosts?.data?.getPressList?.edges;
-  //   if (process.env.NEXT_PUBLIC_HIDE_EDIT_BUTTON === '1') {
-  //     list = list?.filter((item) => item?.node?.data?.isPublish);
-  //   }
-  //   const all = list?.sort(function (a, b) {
-  //     return compareDesc(new Date(a?.node?.data?.date), new Date(b?.node?.data?.date));
-  //   });
-  //   const index = all?.findIndex((item) => {
-  //     return item?.node?.sys?.filename === tinaProps?.data?.getPressDocument?.sys?.filename;
-  //   });
-
-  //   return {
-  //     props: {
-  //       ...tinaProps
-  //     }
-  //   };
-
-  //   const tinaProps = (await getStaticPropsForTina({
-  //     query: `
-  //         query BlogPostQuery($relativePath: String!) {
-  //             ${layoutQueryFragment}
-  //             getPressDocument(relativePath: $relativePath) {
-  //                 data {
-  //                     title
-  //                     date
-  //                     body
-  //                     socialImage
-  //                     socialTitle
-  //                     socialDescription
-  //                 }
-  //                 sys {
-  //                     filename
-  //                 }
-  //             }
-  //         }
-  //     `,
-  //     variables: { relativePath: `${params.filename}.md` }
-  //   })) as { data: { getPressDocument: PressDocument } };
-  //   const allPosts = (await getStaticPropsForTina({
-  //     query: `
-  //             query getAllPosts{
-  //               getPressList{
-  //                 edges {
-  //                   node {
-  //                     id
-  //                     sys {
-  //                       filename
-  //                       basename
-  //                     }
-  //                     data {
-  //                       title
-  //                       date
-  //                       isPublish
-  //                     }
-  //                   }
-  //                 }
-  //               }
-  //             }
-  //         `
-  //   })) as { data: { getPressList: PressConnection } };
-  //   let list = allPosts?.data?.getPressList?.edges;
-  //   if (process.env.NEXT_PUBLIC_HIDE_EDIT_BUTTON === '1') {
-  //     list = list?.filter((item) => item?.node?.data?.isPublish);
-  //   }
-  //   const all = list?.sort(function (a, b) {
-  //     return compareDesc(new Date(a?.node?.data?.date), new Date(b?.node?.data?.date));
-  //   });
-  //   const index = all?.findIndex((item) => {
-  //     return item?.node?.sys?.filename === tinaProps?.data?.getPressDocument?.sys?.filename;
-  //   });
-  //   return {
-  //     props: {
-  //       ...tinaProps,
-  //       prev: list?.[index - 1] ? list?.[index - 1] : null,
-  //       next: list?.[index + 1] ? list?.[index + 1] : null
-  //     }
-  //   };
 };
 
 export const getStaticPaths = async () => {
   const pressListData = await client.queries.pressConnection();
   return {
-    paths: pressListData.data.pressConnection.edges.map((post) => ({
-      params: { filename: post.node._sys.filename }
-    })),
+    paths: pressListData.data.pressConnection.edges.map((post) => {
+      return {
+        params: { filename: post.node._sys.filename }
+      };
+    }),
     fallback: 'blocking'
   };
 };
