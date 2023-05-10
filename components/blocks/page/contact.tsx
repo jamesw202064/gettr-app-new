@@ -1,7 +1,7 @@
 import { Section } from '../../../components/section';
 import { Container } from '../../../components/container';
 import { Markdown } from '../../../components/markdown';
-
+import { TinaMarkdown } from 'tinacms/dist/rich-text';
 export const Contact = ({ data, parentField }) => {
   return (
     <Section color={data.color}>
@@ -11,7 +11,9 @@ export const Contact = ({ data, parentField }) => {
             <div data-id="DDDDDDDD" className="text-brand font-extrabold text-3.5xl tracking-wide">
               {data.title}
             </div>
-            <Markdown className="contact__text">{data.body}</Markdown>
+            <div className='className="contact__text"'>
+              <TinaMarkdown content={data.body} />
+            </div>
             {/* <p>We love working with journalists to share captivating stories. Send us an email and our team will be in touch very soon.</p>
                         <p>We would greatly appreciate if you can include the following details in your email:</p>
                         <ol>

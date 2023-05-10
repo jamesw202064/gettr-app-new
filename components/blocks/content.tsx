@@ -10,8 +10,10 @@ import { Markdown } from '../markdown';
 import Apple from '../../public/apple.svg';
 import Android from '../../public/android.svg';
 
+const contentWrapper = () => {};
+
 export const Content = ({ data, parentField = '' }) => {
-  console.log("file: content.tsx:14 ---- data:", data)
+  console.log('file: content.tsx:14 ---- data:', data);
   return (
     <Section color={data.color}>
       <Container size={'medium'} className="px-4.5 lg:px-0 md:py-32 md:max-w-max_section">
@@ -26,7 +28,9 @@ export const Content = ({ data, parentField = '' }) => {
         <div className="md:flex gap-8">
           <div className="flex-1">
             {/* <Markdown className="content__markdown page-content" children={data.body} /> */}
-            <TinaMarkdown content={data.body}/>
+            <div className="content__markdown page-content">
+              <TinaMarkdown content={data.body} />
+            </div>
           </div>
           <div className="flex-1 flex justify-center">
             <img alt="gettr_concept" style={{ maxWidth: 440 }} className="w-full" src={data.avatar} />
