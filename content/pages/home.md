@@ -2,19 +2,25 @@
 title: Home
 blocks:
   - title: ABOUT
-    body: >
-      GETTR is a social media platform built on the foundation of freedom of
-      opinion and expression.
-
-            Launched July 2021, GETTR is the fastest growing social media platform in history, reaching 1 million users in just three days.
-
-            GETTR lets its best-in-class technology do the talking so that you can communicate anyway you like to whoever you’d like.
-
-            From traditional micro-blogging to livestreaming to short-video platform, GETTR is an all-in-one social utility compatible with mobile and web platforms in every corner of the globe.
-                  To get started, create an account at [GETTR.com](https://gettr.com/ "gettr.com") or download the app.
     avatar: >-
       https://res.cloudinary.com/djlyeefw7/image/upload/v1682450375/about/logo_concept_pgdjoz.png
-    color: primary
+    body: >-
+      **GETTR** is a social media platform built on the foundation of freedom of opinion and expression.
+
+
+      Launched July 2021, **GETTR** is the fastest growing social media platform in history, reaching 1 million users in just three days.
+
+
+      **GETTR** lets its best-in-class technology do the talking so that you can communicate anyway you like to whoever you’d like.
+
+
+      From traditional micro-blogging to livestreaming to short-video platform, **GETTR** is an all-in-one social utility compatible with mobile and web platforms in every corner of the globe.
+
+      
+      To get started, create an account at [**GETTR.com**](https://gettr.com/) or download the app.
+
+
+    color: default
     _template: content
   - title: BETTR WITH GETTR
     excerpt: 'GETTR’s technology is unsurpassed with exciting features, such as:'
@@ -71,20 +77,29 @@ blocks:
     _template: partner
   - title: MEDIA CONTACT
     body: >
-      For all media inquiries, contact     
-      \[\*\*Press@GETTR.com\*\*]\(mailto:press@gettr.com).
+      For all media inquiries, contact
+      [**Press@GETTR.com**](mailto:press@gettr.com).
 
 
-      ```
-        Please include the following details in your correspondence
+      Please include the following details in your correspondence
 
-        \* First and last name
-        \* Contact information
-        \* The media outlet you represent
-      ```
+
+      * First and last name
+
+      * Contact information
+
+      * The media outlet you represent
     color: tiny
     _template: contact
 ---
+
+
+
+
+
+
+
+
 
 
 

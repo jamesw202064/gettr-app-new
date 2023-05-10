@@ -7,10 +7,16 @@ import PressGenerating from '../pressGenerating';
 import FourOhFour from '../404';
 // Use the props returned by get static props
 export default function PressPostPage(props: AsyncReturnType<typeof getStaticProps>['props']) {
+  const { data } = useTina({
+    query: props.query,
+    variables: props.variables,
+    data: props.data
+  });
+
   const prev = props.prev;
   const next = props.next;
-  if (props?.data.press) {
-    return <Press data={props?.data?.press} prev={prev} next={next} />;
+  if (data.press) {
+    return <Press data={data?.press} prev={prev} next={next} />;
   }
   if (process.env.NEXT_PUBLIC_HIDE_EDIT_BUTTON === '0') {
     return <PressGenerating />;

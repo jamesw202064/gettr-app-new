@@ -1,3 +1,5 @@
+/* @import "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"; */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -5,154 +7,155 @@
 
 @layer components {
     .header__btn {
-      @apply inline-block tracking-wide transition duration-150 ease-out py-3;
-      font-size: 15px;
-      line-height: 20px;
-      color: #6e7187;
+        @apply inline-block tracking-wide transition duration-150 ease-out py-3;
+        font-size: 15px;
+        line-height: 20px;
+        color: #6e7187;
     }
-  
+
     li.active {
-      .header__btn {
+        .header__btn {
         @apply font-bold relative;
         color: #000;
         &:after {
-          content: "";
-          background: #000;
-          border: 1px solid #000;
-          position: absolute;
-          bottom: 6px;
-          width: 100%;
-          left: 0;
-          border-radius: 3px;
+            content: "";
+            background: #000;
+            border: 1px solid #000;
+            position: absolute;
+            bottom: 6px;
+            width: 100%;
+            left: 0;
+            border-radius: 3px;
         }
-      }
+        }
     }
-  
+
     li.active > .header__btn &:after {
+
     }
-  }
+}
   
-  html {
-    font-size: 16px;
-    overflow-y: scroll;
-  }
-  
-  .content__markdown {
-    @apply space-y-7;
-  }
-  
-  .content__markdown > p {
-    line-height: 2;
-    font-size: 15px;
-    line-height: 30px;
-    letter-spacing: -0.23px;
-    max-width: 1200px;
-    @apply font-medium;
-  }
-  
-  .contact__text p {
-    @apply mt-7;
-  }
-  
-  .contact__text a {
-      color: #c00;
-      text-decoration:underline;
-  }
-  
-  .content__markdown a {
-      color: #c00;
-      margin-top: 26px;
-      font-weight: 500;
-      text-decoration: underline;
-  }
-  
-  .content__markdown > p:not([hidden]) ~ :not([hidden]) {
-    margin-top: 30px;
-  }
-  
-  .page-content strong {
-    font-weight: 700;
-    color: rgb(204, 0, 0);
-  }
-  
-  .contact__text p:first {
-    @apply mt-0;
-  }
-  
-  .contact__text ul {
-    @apply pl-6 mt-6; 
-  }
-  
-  .contact__text ul li {
-    @apply list-disc mt-3;
-  }
-  
-  /* .contact__text a {
-    @apply text-link1;
-  } */
-  
-  
-  /* pagination */
-  
-  .pagination {
-      @apply flex pl-0 justify-center flex-wrap;
-  }
-  
-  .page-link {
-      @apply px-5 py-2 text-lg text-brand bg-white border-1 border-gray-400 block relative;
-  
-      /* position: relative; */
-      /* display: block; */
-      /* color: #0d6efd; */
-      /* text-decoration: none; */
-      /* background-color: #fff; */
-      /* border: 1px solid #dee2e6; */
-      transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-  }
-  
-  .page-link:hover {
-      z-index: 2;
-      color: white;
-      background-color: rgba(194, 22, 20);
-      border-color: rgba(194, 22, 20);
-  }
-  
-  .page-item.active .page-link {
-      @apply bg-brand border-brand text-white;
-      z-index: 3;
-      /* color: #fff; */
-      /* background-color: #0d6efd; */
-      /* border-color: #0d6efd; */
-  }
-  
-  .page-item:not(:first-child) .page-link {
-      margin-left: -1px;
-  }
-  
-  .page-item .page-link {
-      /* border-top-right-radius: 0.25rem; */
-      /* border-bottom-right-radius: 0.25rem; */
-  }
-  
-  .page-item.disabled .page-link {
-      color: #6c757d;
-      pointer-events: none;
-      background-color: #fff;
-      border-color: #dee2e6;
-  }
-  
-  
-  /* share button  */
-  /* workaround: position of share button compatible with SSR using calc */
+html {
+  font-size: 16px;
+  overflow-y: scroll;
+}
+
+.content__markdown {
+  @apply space-y-7;
+}
+
+.content__markdown > p {
+  line-height: 2;
+  font-size: 15px;
+  line-height: 30px;
+  letter-spacing: -0.23px;
+  max-width: 1200px;
+  @apply font-medium;
+}
+
+.contact__text p {
+  @apply mt-7;
+}
+
+.contact__text a {
+    color: #c00;
+    text-decoration:underline;
+}
+
+.content__markdown a {
+    color: #c00;
+    margin-top: 26px;
+    font-weight: 500;
+    text-decoration: underline;
+}
+
+.content__markdown > p:not([hidden]) ~ :not([hidden]) {
+  margin-top: 30px;
+}
+
+.page-content strong {
+  font-weight: 700;
+  color: rgb(204, 0, 0);
+}
+
+.contact__text p:first {
+  @apply mt-0;
+}
+
+.contact__text ul {
+  @apply pl-6 mt-6; 
+}
+
+.contact__text ul li {
+  @apply list-disc mt-3;
+}
+
+/* .contact__text a {
+  @apply text-link1;
+} */
+
+
+/* pagination */
+
+.pagination {
+    @apply flex pl-0 justify-center flex-wrap;
+}
+
+.page-link {
+    @apply px-5 py-2 text-lg text-brand bg-white border-1 border-gray-400 block relative;
+
+    /* position: relative; */
+    /* display: block; */
+    /* color: #0d6efd; */
+    /* text-decoration: none; */
+    /* background-color: #fff; */
+    /* border: 1px solid #dee2e6; */
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.page-link:hover {
+    z-index: 2;
+    color: white;
+    background-color: rgba(194, 22, 20);
+    border-color: rgba(194, 22, 20);
+}
+
+.page-item.active .page-link {
+    @apply bg-brand border-brand text-white;
+    z-index: 3;
+    /* color: #fff; */
+    /* background-color: #0d6efd; */
+    /* border-color: #0d6efd; */
+}
+
+.page-item:not(:first-child) .page-link {
+    margin-left: -1px;
+}
+
+.page-item .page-link {
+    /* border-top-right-radius: 0.25rem; */
+    /* border-bottom-right-radius: 0.25rem; */
+}
+
+.page-item.disabled .page-link {
+    color: #6c757d;
+    pointer-events: none;
+    background-color: #fff;
+    border-color: #dee2e6;
+}
+
+
+/* share button  */
+/* workaround: position of share button compatible with SSR using calc */
+.share__button {
+  left: auto
+}
+@screen sm {
   .share__button {
-    left: auto
+    left: calc(50vw + 440px)
   }
-  @screen sm {
-    .share__button {
-      left: calc(50vw + 440px)
-    }
-  }
-  
-  .press a {
-    color: #c00
-  }
+}
+
+.press a {
+  color: #c00
+}
