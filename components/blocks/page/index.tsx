@@ -40,13 +40,13 @@ export const PageBlocks = (props: Page) => {
           case 'PageBlocksPartner':
             return (
               <React.Fragment key={i + block.__typename}>
-                <Partner data={block} parentField={`blocks.${i}`} />
+                <Partner data={block} />
               </React.Fragment>
             );
           case 'PageBlocksLeadership':
             return (
               <React.Fragment key={i + block.__typename}>
-                <Leadership data={block} parentField={`blocks.${i}`} />
+                <Leadership data={block} />
               </React.Fragment>
             );
           case 'PageBlocksFeatureOnlyTexts':
