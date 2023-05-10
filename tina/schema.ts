@@ -256,10 +256,6 @@ export const leaderBlockSchema: Template = {
     },
     {
       type: 'rich-text',
-      //   type: 'string',
-      //   ui: {
-      //     component: 'markdown'
-      //   },
       label: 'Quotation',
       name: 'quotation',
       isBody: true
@@ -378,12 +374,22 @@ export const contactBlockSchema: Template = {
     },
     {
       type: 'rich-text',
-      //   ui: {
-      //     component: 'markdown'
-      //   },
       label: 'Body',
       name: 'body',
-      isBody: true
+      isBody: true,
+      templates: [
+        {
+          name: 'Callout',
+          label: 'Callout',
+          fields: [
+            {
+              name: 'message',
+              label: 'Message',
+              type: 'string'
+            }
+          ]
+        }
+      ]
     },
     {
       type: 'string',
