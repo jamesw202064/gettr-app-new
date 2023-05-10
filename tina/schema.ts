@@ -795,6 +795,7 @@ export default defineSchema({
         // }
         // fields: []
       },
+      
       fields: [
         {
           type: 'string',
@@ -831,7 +832,7 @@ export default defineSchema({
           }
         },
         {
-          type: 'string',
+          type: 'rich-text',
           name: 'body',
           label: 'Body',
           ui: {
