@@ -8,7 +8,7 @@ export const Contact = ({ data, parentField }) => {
       <Container size={'large'} className={`md:flex flex-wrap gap-x-10 gap-y-8 text-left lg:px-0 md:max-w-max_section`}>
         <div className="md:grid lg:grid-cols-2">
           <div className="contact__text">
-            <div data-id="DDDDDDDD" className="text-brand font-extrabold text-3.5xl tracking-wide">
+            <div className="text-brand font-extrabold text-3.5xl tracking-wide">
               {data.title}
             </div>
             <div className='className="contact__text"'>

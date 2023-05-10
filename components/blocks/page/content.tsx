@@ -19,7 +19,7 @@ export const Content = ({ data, parentField }) => {
           {data.title}
         </h1>
         <div className="md:flex gap-8">
-          <div data-id="FFFFFFFF" className="flex-1">
+          <div className="flex-1">
             <Markdown className="content__markdown page-content" children={data.body} />
           </div>
           <div className="flex-1 flex justify-center">

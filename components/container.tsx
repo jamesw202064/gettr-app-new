@@ -16,8 +16,9 @@ export const Container: React.FC<ContainerProps & { ref?: React.Ref<HTMLDivEleme
     large: 'py-16 md:py-32'
   };
   const boxPadding = 'px-6 ' + (verticalPadding[size] ? verticalPadding[size] : '');
+//   max-w-7xl 
   return (
-    <div ref={ref} className={`max-w-7xl mx-auto ${className} ${boxPadding}`}>
+    <div ref={ref} className={`mx-auto ${className} ${boxPadding}`}>
       {children}
     </div>
   );

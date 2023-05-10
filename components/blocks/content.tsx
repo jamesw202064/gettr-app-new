@@ -10,8 +10,6 @@ import { Markdown } from '../markdown';
 import Apple from '../../public/apple.svg';
 import Android from '../../public/android.svg';
 
-const contentWrapper = () => {};
-
 export const Content = ({ data, parentField = '' }) => {
   console.log('file: content.tsx:14 ---- data:', data);
   return (
@@ -57,7 +55,7 @@ export const Content = ({ data, parentField = '' }) => {
         </div>
       </Container>
     </Section>
-    // <Section data-id="MMMMMM" color={data.color}>
+    // <Section color={data.color}>
     //   <Container
     //     className={`prose prose-lg ${data.color === 'primary' ? `prose-primary` : `dark:prose-dark`}`}
     //     data-tinafield={`${parentField}.body`}

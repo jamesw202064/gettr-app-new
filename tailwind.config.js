@@ -32,25 +32,25 @@ module.exports = {
       white: colors.white,
       teal: colors.cyan,
       green: colors.emerald,
-      red: colors.rose,
+      red: colors.red,
       purple: colors.purple,
       pink: colors.pink,
       yellow: colors.yellow,
       indigo: colors.indigo,
       gray: {
-        50: '#F6F6F9',
-        100: '#EDECF3',
-        150: '#E6E3EF',
-        200: '#E1DDEC',
-        250: '#C9C5D5',
-        300: '#b2adbe',
-        400: '#918c9e',
-        500: '#716c7f',
-        600: '#565165',
-        700: '#433e52',
-        800: '#363145',
-        900: '#252336',
-        1000: '#1c1b2e'
+        50: '#F6F6F8',
+        100: '#EDECF1',
+        150: '#E6E4EC',
+        200: '#E1DEE8',
+        250: '#C9C6D1',
+        300: '#B1AEBA',
+        400: '#908D9A',
+        500: '#716D7A',
+        600: '#565260',
+        700: '#3D3A47',
+        800: '#312E3B',
+        900: '#22212E',
+        1000: '#1A1A26'
       },
       blue: {
         50: '#DCEEFF',
@@ -98,13 +98,6 @@ module.exports = {
       '7xl': '5rem',
       '8xl': '6rem',
       13: '13px'
-    },
-    borderWidth: {
-      DEFAULT: '3px',
-      0: '0',
-      2: '2px',
-      3: '3px',
-      4: '4px'
     },
     borderWidth: {
       DEFAULT: '3px',
@@ -257,10 +250,22 @@ module.exports = {
         15: '.15'
       },
       maxWidth: {
+        max_section: '77.3125rem',
+        '7xl': '78rem',
         '8xl': '86rem'
       },
       spacing: {
+        4.5: '1.125rem',
+        7.5: '1.875rem',
         128: '32rem'
+      },
+      maxHeight: {
+        banner: '41rem'
+      },
+      minHeight: {
+        banner: '41rem',
+        52: '52px',
+        60: '60px'
       },
       zIndex: {
         '-1': '-1'
@@ -291,9 +296,6 @@ module.exports = {
             },
             'p a': {
               fontWeight: 'bold'
-            },
-            'p:first-of-type': {
-              fontSize: '1.125rem'
             },
             p: {
               marginBottom: '26px',
@@ -334,7 +336,7 @@ module.exports = {
             }
           }
         },
-        tint: {
+        tiny: {
           css: {
             pre: {
               color: theme('colors.gray.800'),
@@ -574,7 +576,7 @@ module.exports = {
     wordBreak: ['responsive'],
     zIndex: ['responsive', 'focus-within', 'focus'],
     aspectRatio: ['responsive', 'hover'],
-    extend: { typography: ['tint', 'dark', 'primary'] }
+    extend: { typography: ['tiny', 'dark', 'primary'] }
   },
   plugins: [
     require('@tailwindcss/typography'),

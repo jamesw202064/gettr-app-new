@@ -4,7 +4,8 @@ import Link from 'next/link';
 import { Container } from './container';
 import { ThemeContext } from './theme';
 import { useRouter } from 'next/router';
-import GettrSvg from '../public/gettr.svg';
+// import GettrSvg from '../public/gettr.svg';
+import { GettIcon } from './icons/gettr_icon';
 
 export const Header = ({ data }) => {
   const theme = React.useContext(ThemeContext);
@@ -44,18 +45,12 @@ export const Header = ({ data }) => {
           <h4 className="select-none text-lg font-bold tracking-tight transition duration-150 ease-out transform">
             <Link href="/" passHref>
               <a className="flex items-center">
-                <GettrSvg
-                  className="hidden md:block"
-                  style={{
-                    width: '101px',
-                    height: '47px'
-                  }}
-                />
-                <GettrSvg
+                <GettIcon className="hidden md:block" width={101} height={47} />
+                <GettIcon
                   className="md:hidden"
+                  width={101}
+                  height={36}
                   style={{
-                    width: '101px',
-                    height: '36px',
                     marginLeft: '-10px',
                     marginTop: '-10px'
                   }}

@@ -12,8 +12,7 @@ import {
   contactBlockSchema,
   ImageBlockSchema,
   CommonContentBlockSchema,
-  pageContentBlockSchema,
-  timelineBlockSchema
+  pageContentBlockSchema
 } from './schema';
 
 const branch =
@@ -40,7 +39,6 @@ const config = defineConfig({
         label: 'Press',
         name: 'press',
         path: 'content/press',
-        format: 'md',
         ui: {
           router: ({ document }) => {
             return `/press/${document._sys.filename}`;
@@ -82,12 +80,9 @@ const config = defineConfig({
             }
           },
           {
-            type: 'string',
+            type: 'rich-text',
             name: 'body',
             label: 'Body',
-            ui: {
-              component: 'markdown'
-            },
             isBody: true
           },
           {

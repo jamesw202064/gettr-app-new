@@ -4,7 +4,7 @@ import format from 'date-fns/format';
 import Link from 'next/link';
 import { FiArrowLeft, FiArrowRight } from 'react-icons/fi';
 import removeMd from 'remove-markdown';
-
+import { TinaMarkdown } from 'tinacms/dist/rich-text';
 import { SEO } from './seo';
 import { Container } from './container';
 import { ShareButton } from './shareButton';
@@ -87,8 +87,8 @@ export const Press = ({ data, prev, next }) => {
           </div>
         )} */}
         <Container className={`flex-1 max-w-3xl pt-4 px-0 pb-0 md:pb-8 md:px-4 md:pt-0`} size="small">
-          <div data-id="MMMMMMMM" className="prose dark:prose-dark  w-full max-w-none">
-            <Markdown children={data.body} />
+          <div className="prose dark:prose-dark  w-full max-w-none">
+            <TinaMarkdown content={data.body} />
           </div>
           <div className="p-14">
             <p className="text-center" style={{ fontSize: 13, lineHeight: '24px', fontWeight: 'bold' }}>

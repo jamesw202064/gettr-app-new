@@ -2,9 +2,8 @@
 title: GETTR COIN PILOT REWARDS PROGRAM LAUNCHED
 date: '2023-01-26T12:38:00.000Z'
 excerpt: >-
-  The fastest growing social media company in the world, GETTR,
-  launched a pilot program of the GETTR Coin Rewards Program to
-  a select group of verified users.
+  The fastest growing social media company in the world, GETTR, launched a pilot
+  program of the GETTR Coin Rewards Program to a select group of verified users.
 isPublish: true
 ---
 
