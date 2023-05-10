@@ -9,7 +9,6 @@ import { SEO } from './seo';
 import { Container } from './container';
 import { ShareButton } from './shareButton';
 import { Section } from './section';
-import { Markdown } from './markdown';
 
 const extractSEODescription = (md) => {
   try {

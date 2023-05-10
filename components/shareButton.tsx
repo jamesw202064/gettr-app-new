@@ -17,7 +17,7 @@ export const ShareButton: React.FC = () => {
   });
 
   const postLink = typeof window !== 'undefined' ? window?.location?.href : '';
-  const handleSharePost = (share?: { shareLink?: string }) => (_: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
+  const handleSharePost = (share?: { shareLink?: string }) => () => {
     const shareLink = share?.shareLink;
     if (shareLink && postLink) {
       window.open(`${shareLink}${postLink}`, '_blank', 'noopener=yes,noreferrer=yes');

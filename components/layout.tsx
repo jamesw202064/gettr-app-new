@@ -12,7 +12,7 @@ import { ThemeContext } from './theme';
 
 export const useTheme = () => React.useContext(ThemeContext);
 
-export const Layout = ({ rawData = '', data = layoutData, children }) => {
+export const Layout = ({ data = layoutData, children }) => {
   const route = useRouter();
   const breadcrumbLink = route.asPath === '/' ? '/' : route.asPath.startsWith('/career') ? '/career' : '/press';
   const breadcrumbText = route.asPath === '/' ? 'About' : route.asPath.startsWith('/career') ? 'Career' : 'Press';

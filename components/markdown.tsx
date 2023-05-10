@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactMarkdown, { Options } from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { TinaMarkdown } from 'tinacms/dist/rich-text';
 
 export const Markdown: React.FC<Options> = ({ children, ...rest }) => {
   return (
@@ -10,7 +9,7 @@ export const Markdown: React.FC<Options> = ({ children, ...rest }) => {
       children={children}
       remarkPlugins={[remarkGfm]}
       components={{
-        a: ({ node, ...props }) => <a {...props} target="_blank" rel="noopener noreferrer" />
+        a: ({ ...props }) => <a {...props} target="_blank" rel="noopener noreferrer" />
       }}
       {...rest}
     />

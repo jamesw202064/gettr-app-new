@@ -11,7 +11,6 @@ interface IContent {
   parentField?: string;
 }
 export const Content = ({ data }: IContent) => {
-  console.log('file: content.tsx:14 ---- data:', data);
   return (
     <Section color={data.color}>
       <Container size={'medium'} className="px-4.5 lg:px-0 md:py-32 md:max-w-max_section">

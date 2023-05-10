@@ -3,7 +3,7 @@ import { Section } from '../../section';
 import { Container } from '../../container';
 // import { Icon } from '../../icon';
 
-export const Partner = ({ data, parentField }) => {
+export const Partner = ({ data }) => {
   return (
     <Section color={data.color}>
       <Container size={'medium'} className={`px-4.5 lg:px-0 md:py-32 md:max-w-max_section`}>

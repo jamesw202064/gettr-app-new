@@ -19,38 +19,38 @@ export const Blocks = (props: Omit<Page, 'id' | '_sys' | '_values'>) => {
               case 'PageBlocksFeatureOnlyTexts':
                 return (
                   <div data-tinafield={`blocks.${i}`} key={i + block.__typename}>
-                    <FeaturesOnlyText data={block} parentField={`blocks.${i}`} />
+                    <FeaturesOnlyText data={block} />
                   </div>
                 );
               case 'PageBlocksLeadership':
                 return (
                   <div data-tinafield={`blocks.${i}`} key={i + block.__typename}>
-                    <Leadership data={block} parentField={`blocks.${i}`} />
+                    <Leadership data={block} />
                   </div>
                 );
               case 'PageBlocksPartner':
                 return (
                   <div data-tinafield={`blocks.${i}`} key={i + block.__typename}>
-                    <Partner data={block} parentField={`blocks.${i}`} />
+                    <Partner data={block} />
                   </div>
                 );
               case 'PageBlocksContact':
                 return (
                   <div data-tinafield={`blocks.${i}`} key={i + block.__typename}>
-                    <Contact data={block} parentField={`blocks.${i}`} />
+                    <Contact data={block} />
                   </div>
                 );
 
               case 'PageBlocksContent':
                 return (
                   <div data-tinafield={`blocks.${i}`} key={i + block.__typename}>
-                    <Content data={block} parentField={`blocks.${i}`} />
+                    <Content data={block} />
                   </div>
                 );
               case 'PageBlocksHero':
                 return (
                   <div data-tinafield={`blocks.${i}`} key={i + block.__typename}>
-                    <Hero data={block} parentField={`blocks.${i}`} />
+                    <Hero data={block} />
                   </div>
                 );
               case 'PageBlocksFeatures':

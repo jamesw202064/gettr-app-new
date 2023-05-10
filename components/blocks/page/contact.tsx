@@ -1,16 +1,20 @@
 import { Section } from '../../../components/section';
 import { Container } from '../../../components/container';
-import { Markdown } from '../../../components/markdown';
 import { TinaMarkdown } from 'tinacms/dist/rich-text';
-export const Contact = ({ data, parentField }) => {
+import { PageBlocksContact } from '../../../tina/__generated__/types';
+
+interface IContact {
+  data: PageBlocksContact;
+  parentField?: string;
+}
+
+export const Contact = ({ data }: IContact) => {
   return (
     <Section color={data.color}>
       <Container size={'large'} className={`md:flex flex-wrap gap-x-10 gap-y-8 text-left lg:px-0 md:max-w-max_section`}>
         <div className="md:grid lg:grid-cols-2">
           <div className="contact__text">
-            <div className="text-brand font-extrabold text-3.5xl tracking-wide">
-              {data.title}
-            </div>
+            <div className="text-brand font-extrabold text-3.5xl tracking-wide">{data.title}</div>
             <div className='className="contact__text"'>
               <TinaMarkdown content={data.body} />
             </div>
